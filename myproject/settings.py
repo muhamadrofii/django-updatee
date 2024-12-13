@@ -176,26 +176,7 @@ SOCIALACCOUNT_LOGIN_ON_GET = True
 SOCIALACCOUNT_AUTO_SIGNUP = True
 
 
-# MIDTRANS_SERVER_KEY = 'SB-Mid-server-8XheQc4FPaUl2U7DN58R8Iyp'
-# MIDTRANS_CLIENT_KEY = 'SB-Mid-client-p0guCHbtW4Rxw3Fb'
-# MIDTRANS_IS_PRODUCTION = False 
 
-# ALLOWED_HOSTS = [
-#     'localhost',
-#     '127.0.0.1',
-#     'd1cf-2001-448a-5020-570a-dd95-cd6e-e0fc-fd8b.ngrok-free.app',  
-#     'evolved-gnu-special.ngrok-free.app'
-# ]
-
-
-# Merchant ID
-# G769082364
-
-# Client Key
-# SB-Mid-client-p0guCHbtW4Rxw3Fb
-
-# Server Key
-# SB-Mid-server-8XheQc4FPaUl2U7DN58R8Iyp
 CSRF_COOKIE_SAMESITE = 'None'
 CSRF_COOKIE_SECURE = True
 
