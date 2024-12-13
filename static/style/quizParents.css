@@ -1,0 +1,141 @@
+:root {
+    --firstpurple: #704FE3;
+    --secondpurple: #DEC8FE;
+    --firstyellow:#FFD25D;
+    --secondyellow: #FFF1CE;
+}
+    
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  outline: none;
+  border: none;
+  text-decoration: none;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: 'Poppins', sans-serif;
+  width: 100%;
+  background-color: #fffcf4;
+}
+
+.box-area {
+  width: 800px;
+  background-color: #fff;
+  margin: 40px;
+}
+
+.box-area .btn-purple {
+  background-color: #6f42c1;
+  color: #fff;
+}
+  
+.box-area .btn-purple:hover {
+  background-color: #ffffff;
+  color: #6f42c1;
+  border: 1px solid #6f42c1;
+}
+
+.box-area h1 {
+  text-align: center;
+  color: var(--firstpurple);
+}
+
+.box-area hr {
+  border: 1px solid black;
+  width: 550px;
+  margin: 10px auto 50px auto;
+}
+
+.box-area #quizParents .question {
+  margin-bottom: 30px;
+}
+
+.box-area .button-submit {
+  display: block;
+  width: 100%;
+  padding: 10px;
+  background-color: var(--firstpurple);
+  color: white;
+  border: none;
+  border-radius: 5px;
+  font-size: 16px;
+  cursor: pointer;
+  margin: 50px 0px 20px 0px;
+}
+
+.box-area .button-submit:hover {
+  background-color: var(--firstyellow);
+  color: var(--firstpurple);
+}
+
+.btn-secondary {
+  display: block;
+  width: 100%;
+  padding: 10px;
+  background-color: #464646;
+  color: var(--secondyellow);
+  border: none;
+  border-radius: 5px;
+  font-size: 16px;
+  cursor: pointer;
+  margin: 50px 0px 20px 0px;
+}
+
+.modal-content {
+  background-color: #ffffff;
+  color: var(--firstpurple);
+  border-radius: 10px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+  padding: 20px;
+}
+
+.modal-content .modal-header {
+  border-bottom: none;
+  text-align: center;
+  justify-content: center;
+}
+
+.modal-content .modal-title {
+  font-size: 20px;
+  font-weight: 600;
+}
+
+.modal-content .modal-body {
+  font-size: 16px;
+  text-align: center;
+  line-height: 1.5;
+}
+
+.modal-content .modal-footer {
+  border-top: none;
+  justify-content: center;
+}
+
+.modal-content .modal-footer .button-footer {
+  background-color: var(--firstyellow);
+  border: none;
+  color: #464646;
+  font-weight: bold;
+  border-radius: 5px;
+  padding: 10px 20px;
+  transition: background-color 0.3s, color 0.3s;
+}
+
+.modal-content .modal-footer .button-footer a {
+  color: #464646;
+  text-decoration: none;
+}
+
+.modal-content .modal-footer .button-footer:hover {
+  background-color: #464646;
+}
+
+.modal-content .modal-footer .button-footer:hover a {
+  color: var(--secondyellow);
+}

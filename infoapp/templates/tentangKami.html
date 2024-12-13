@@ -1,0 +1,263 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Tentang Kami{% endblock %}
+{% block head %}
+
+<link rel="stylesheet" href="{% static 'style/tentangKami.css' %}">
+<script src="{% static 'js/navbar.js' %}"></script> 
+{% endblock %}
+
+{% block content %}
+
+<!-- Navbar -->
+<nav class="navbar navbar-expand-lg py-1 fixed-top">
+    <div class="container-fluid px-5">
+        <a class="navbar-brand" href="#"><img src="{% static 'images/index/logoSmartbeez.png' %}" class="img-fluid" alt="Logo SmartBeez"></a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav mx-auto mb-2 mb-lg-0 small fw-bolder gap-4">
+                <li class="nav-item"><a class="nav-link" href="{% url 'index' %}">Home</a></li>
+                <li class="nav-item"><a class="nav-link" href="{% url 'tentangKami' %}">Tentang Kami</a></li>
+                <li class="nav-item"><a class="nav-link" href="{% url 'berita' %}">Berita Terkini</a></li>
+                <li class="nav-item"><a class="nav-link" href="{% url 'faq' %}">FAQs</a></li>
+            </ul>
+            <div class="d-flex gap-1">
+                <a class="btn btn-login rounded-5" href="login.html">Login</a>
+                <a class="btn btn-outline-warning rounded-5" href="signUp.html">Sign Up</a>
+            </div>
+        </div>
+    </div>
+</nav>
+
+<!-- Tentang Kami -->
+<div class="tentangKami" id="tentangKami">
+    <div class="container-fluid tentangKami-section">
+        <div class="content-tentangKami d-flex justify-content-center align-items-center mx-auto py-5" style="width: 100%;">
+            <!-- Kolom Kiri -->
+            <div class="image-column">
+                <img src="{% static 'images/tentangKami/gambarLakilaki.png' %}" alt="Elemen Lingkaran" class="side-image">
+            </div>
+            
+            <!-- Kolom Tengah -->
+            <div class="text-column mx-4" style="text-align: center;">
+                <h1>Yuk<span style="color: #704FE3;"> berkenalan</span> lebih jauh <br> dengan <span style="color: #FFD25D;">SmartBeez</span>!</h1>
+                <a class="eksplore" href="#introduction" role="button">Eksplore Now!</a>
+            </div>
+
+            <!-- Kolom Kanan -->
+            <div class="image-column">
+                <img src="{% static 'images/tentangKami/gambarPerempuan.png' %}" alt="Elemen Lingkaran" class="side-image">
+            </div>
+        </div>
+    </div>
+
+    <div class="smartbeez" id="smartbeez">
+        <div class="introduction" id="introduction">
+            <h1 style="color: #ffffff;">Who<span style="color: #FFD25D;"> are we</span>?</h1>
+            <div class="container-introduction" style="text-align: justify;">
+                <p>SmartBeez adalah solusi utama bagi orang tua yang ingin memastikan tumbuh kembang optimal bagi anak usia 5-9 tahun. Platform ini dirancang khusus untuk mendukung perkembangan anak Anda secara menyeluruh,
+                    mulai dari aspek emosional hingga intelektual, sambil memberikan panduan parenting yang relevan dan up-to-date bagi orang tua. Kami menyediakan berbagai sumber daya berkualitas, aktivitas menarik,
+                    serta informasi edukatif yang praktis untuk membantu anak-anak mencapai potensi terbaiknya. <br><br>
+                    Dengan fokus pada pendidikan holistik, SmartBeez hadir untuk mendampingi Anda dalam menghadapi tantangan parenting di era digital. Mulai dari tips efektif hingga strategi praktis,
+                    kami berkomitmen untuk mendukung peran Anda sebagai orang tua yang bijak dan proaktif.
+                </p>
+            </div>
+        </div>
+        <div class="visimisi">
+            <div class="visi">
+                <h1 style="color: #FFD25D;">Visi<span style="color: #ffffff;"> Kami</span>.</h1>
+                <div class="container-visi">
+                    <p>
+                        Menjadi platform pendidikan interaktif yang menyenangkan dan inovatif, membantu anak-anak usia 5 hingga 9 tahun mengembangkan keterampilan dasar, 
+                        kreativitas, dan rasa ingin tahu mereka melalui pengalaman belajar yang aman, menyenangkan, dan mendalam.
+                    </p>
+                </div>
+            </div>
+            <div class="misi">
+                <h1 style="color: #464646;">Misi<span style="color: #ffffff;"> Kami</span>.</h1>
+                <div class="container-misi" style="margin-top: 30px;">
+                    <div class="card-misi">
+                        <div class="card-misi-img">
+                            <img src="{% static 'images/tentangKami/misi1.png' %}" alt="Misi 1">
+                        </div>
+                        <div class="card-misi-item">
+                            <p class="card-misi-text">Menyediakan materi sesuai usia untuk mendukung perkembangan kognitif, emosional, dan sosial anak.</p>
+                        </div>
+                    </div>
+                    <div class="card-misi">
+                        <div class="card-misi-img">
+                            <img src="{% static 'images/tentangKami/misi2.png' %}" alt="Misi 2">
+                        </div>
+                        <div class="card-misi-item">
+                            <p class="card-misi-text">Menciptakan pengalaman belajar interaktif dan menyenangkan untuk mendorong anak aktif belajar.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="container-misi" style="margin-bottom: 20px;">
+                    <div class="card-misi">
+                        <div class="card-misi-img">
+                            <img src="{% static 'images/tentangKami/misi3.png' %}" alt="Misi 3">
+                        </div>
+                        <div class="card-misi-item">
+                            <p class="card-misi-text">Menggunakan teknologi edukatif yang aman dan ramah anak untuk memperkaya proses pembelajaran.</p>
+                        </div>
+                    </div>
+                    <div class="card-misi">
+                        <div class="card-misi-img">
+                            <img src="{% static 'images/tentangKami/misi4.png' %}" alt="Misi 4">
+                        </div>
+                        <div class="card-misi-item">
+                            <p class="card-misi-text">Menyediakan alat bantu yang mendukung perkembangan anak di rumah dan di sekolah.</p>
+                        </div>
+                    </div>
+                    <div class="card-misi">
+                        <div class="card-misi-img">
+                            <img src="{% static 'images/tentangKami/misi5.png' %}" alt="Misi 5">
+                        </div>
+                        <div class="card-misi-item">
+                            <p class="card-misi-text">Menginspirasi anak-anak untuk giat belajar, mengeksplorasi kreativitas, dan menumbuhkan rasa ingin tahu.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="member">
+        <h1 style="color: #704FE3;">Our<span style="color: #FFD25D;"> Member</span>.</h1>
+        <div class="container-member">
+            <div class="member-card">
+                <div class="card">
+                    <img src="{% static 'images/tentangKami/rianda.png' %}" alt="Rianda Saputra">
+                    <h5>Rianda Saputra</h5>
+                    <h6>Team Developer</h6>
+                    <div class="icons-member">
+                        <a href="https://www.instagram.com/riandasaputa"><i data-feather="instagram"></i></a>
+                        <a href="#"><i data-feather="linkedin"></i></a>
+                    </div>
+                </div>
+                <div class="card">
+                    <img src="{% static 'images/tentangKami/nida.png' %}" alt="Syafiqotun Nidaa">
+                    <h5>Syafiqotun Nidaa</h5>
+                    <h6>Team Developer</h6>
+                    <div class="icons-member">
+                        <a href="https://www.instagram.com/nnnidaasy"><i data-feather="instagram"></i></a>
+                        <a href="#"><i data-feather="linkedin"></i></a>
+                    </div>
+                </div>
+                <div class="card">
+                    <img src="{% static 'images/tentangKami/suna.png' %}" alt="Putri Suna">
+                    <h5>Putri Suna</h5>
+                    <h6>Team Developer</h6>
+                    <div class="icons-member">
+                        <a href="putrisuna"><i data-feather="instagram"></i></a>
+                        <a href="#"><i data-feather="linkedin"></i></a>
+                    </div>
+                </div>
+                <div class="card">
+                    <img src="{% static 'images/tentangKami/maura.png' %}" alt="Maura A. Rasyade">
+                    <h5>Maura A. Rasyade</h5>
+                    <h6>Team Developer</h6>
+                    <div class="icons-member">
+                        <a href="https://www.instagram.com/manusiakoi"><i data-feather="instagram"></i></a>
+                        <a href="https://www.linkedin.com/in/mauraaqlailarasyade/"><i data-feather="linkedin"></i></a>
+                    </div>
+                </div>
+                <div class="card">
+                    <img src="{% static 'images/tentangKami/salsa.png' %}" alt="Nur Salsabila C. I">
+                    <h5>Nur Salsabila C. I</h5>
+                    <h6>Team Developer</h6>
+                    <div class="icons-member">
+                        <a href="https://www.instagram.com/chachabink"><i data-feather="instagram"></i></a>
+                        <a href="#"><i data-feather="linkedin"></i></a>
+                    </div>
+                </div>
+                <div class="card">
+                    <img src="{% static 'images/tentangKami/bella.png' %}" alt="Sabella Yasmin S">
+                    <h5>Sabella Yasmin S</h5>
+                    <h6>Team Developer</h6>
+                    <div class="icons-member">
+                        <a href="https://www.instagram.com/sabellaays_"><i data-feather="instagram"></i></a>
+                        <a href="https://www.linkedin.com/in/sabella-yasmin-sambadagni-b313a2229"><i data-feather="linkedin"></i></a>
+                    </div>
+                </div>
+                <div class="card">
+                    <img src="{% static 'images/tentangKami/rofi.png' %}" alt="Muhamad Rofi'i">
+                    <h5>Muhamad Rofi'i</h5>
+                    <h6>Team Developer</h6>
+                    <div class="icons-member">
+                        <a href="https://www.instagram.com/muhamad_.rofii"><i data-feather="instagram"></i></a>
+                        <a href="#"><i data-feather="linkedin"></i></a>
+                    </div>
+                </div>
+                <div class="card">
+                    <img src="{% static 'images/tentangKami/amanda.png' %}" alt="Amanda S. Putri">
+                    <h5>Amanda S. Putri</h5>
+                    <h6>Team Developer</h6>
+                    <div class="icons-member">
+                        <a href="#"><i data-feather="instagram"></i></a>
+                        <a href="#"><i data-feather="linkedin"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Footer -->
+<footer class="footer">
+    <div class="footer-container container-fluid">
+        <div class="footer-header">
+            <img src="{% static 'images/index/logoSmartbeez.png' %}" alt="Company Logo" class="footer-logo">
+            <h6>Bermain dan belajar sambil berpetualang <br>bersama SmartBeez</h6>
+            <div class="footer-sosmed">
+                <div class="social-icons">
+                    <a href="#" style="margin-left: 50px;"><i data-feather="mail"></i></a>
+                    <a href="#"><i data-feather="twitter"></i></a>
+                    <a href="#"><i data-feather="facebook"></i></a>
+                    <a href="#"><i data-feather="instagram"></i></a>
+                    <a href="#"><i data-feather="youtube"></i></a>
+                    <a href="#"><i data-feather="linkedin"></i></a>
+                </div>
+            </div>
+        </div>
+        <div class="footer-column" style="margin-left: 200px;">
+            <h4>SmartBeez</h4>
+            <ul>
+                <li><a href="{% url 'tentangKami' %}">Tentang Kami</a></li>
+                <li><a href="{% url 'index' %}#features">Keunggulan</a></li>
+                <li><a href="{% url 'index' %}#testimonial">Testimoni</a></li>
+            </ul>
+        </div>
+        <div class="footer-column">
+            <h4>Produk</h4>
+            <ul>
+                <li><a href="login.html">Video Learning</a></li>
+                <li><a href="login.html">Games</a></li>
+                <li><a href="{% url 'berita' %}">Berita</a></li>
+            </ul>
+        </div>
+        <div class="footer-column">
+            <h4>Lainnya</h4>
+            <ul>
+                <li><a href="{% url 'faq' %}#faq">Faqs</a></li>
+                <li><a href="{% url 'faq' %}#kontak">Kontak</a></li>
+            </ul>
+        </div>
+    </div>
+    <div class="footer-bottom">
+        <div class="credit-right" style="text-align: left; justify-content: left; margin-left: 30px;">
+            <p class="text-decoration-none p-3">Created by  <span class="text-warning"> <strong>kelompok 2</strong></span> | &copy; 2024.</p>
+        </div>
+        <div class="credit-center" style="text-align: center; justify-content: center;">
+            <p class="text-decoration-none p-3" >Terms of Service</p>
+        </div>
+        <div class="credit-left" style="text-align: right; justify-content: right; margin-right: 30px;">
+            <p class="text-decoration-none p-3" style="display: flex; align-items: center; margin: 0;">Back to Top<a href="#" class="panah" style="margin-left: 10px;"><i data-feather="arrow-up"></i></a></p>
+        </div>
+    </div>
+</footer>
+
+{% endblock %}

@@ -1,0 +1,187 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}FAQ{% endblock %}
+{% block head %}
+
+<link rel="stylesheet" href="{% static 'style/faq.css' %}">
+<script src="{% static 'js/navbar.js' %}"></script>
+<script src="{% static 'js/faq.js' %}"></script>
+{% endblock %}
+
+{% block content %}
+
+    <!-- Navbar -->
+        <nav class="navbar navbar-expand-lg py-1 fixed-top">
+            <div class="container-fluid px-5">
+                <a class="navbar-brand" href="#"><img src="{% static 'images/index/logoSmartbeez.png' %}" class="img-fluid" alt="Logo SmartBeez"></a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav mx-auto mb-2 mb-lg-0 small fw-bolder gap-4">
+                        <li class="nav-item"><a class="nav-link" href="{% url 'index' %}">Home</a></li>
+                        <li class="nav-item"><a class="nav-link" href="{% url 'tentangKami' %}">Tentang Kami</a></li>
+                        <li class="nav-item"><a class="nav-link" href="{% url 'berita' %}">Berita Terkini</a></li>
+                        <li class="nav-item"><a class="nav-link" href="{% url 'faq' %}">FAQs</a></li>
+                    </ul>
+                    <div class="d-flex gap-1">
+                        <a class="btn btn-login rounded-5" href="login.html">Login</a>
+                        <a class="btn btn-outline-warning rounded-5" href="signUp.html">Sign Up</a>
+                    </div>
+                </div>
+            </div>
+        </nav>
+
+    <!-- FAQ -->
+        <div class="faq" id="faq">
+            <h1 style="color: #704FE3;">FAQ<span style="color: #FFD25D;">s</span>.</h1>
+            <div class="container d-flex justify-content-center" id="faqs">
+                <div class="w-75">
+                    <div class="accordion" id="faqAccordion">
+                        <div class="accordion-item">
+                            <h2 class="accordion-header" id="headingOne">
+                                <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                                    <span id="questionOne"></span>
+                                </button>
+                            </h2>
+                            <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne" data-bs-parent="#faqAccordion">
+                                <div class="accordion-body" id="answerOne">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="accordion-item">
+                            <h2 class="accordion-header" id="headingTwo">
+                                <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                                    <span id="questionTwo"></span>
+                                </button>
+                            </h2>
+                            <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo" data-bs-parent="#faqAccordion">
+                                <div class="accordion-body" id="answerTwo">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="accordion-item">
+                            <h2 class="accordion-header" id="headingThree">
+                                <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                                    <span id="questionThree"></span>
+                                </button>
+                            </h2>
+                            <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree" data-bs-parent="#faqAccordion">
+                                <div class="accordion-body" id="answerThree">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="accordion-item">
+                            <h2 class="accordion-header" id="headingFour">
+                                <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFour" aria-expanded="false" aria-controls="collapseFour">
+                                    <span id="questionFour"></span>
+                                </button>
+                            </h2>
+                            <div id="collapseFour" class="accordion-collapse collapse" aria-labelledby="headingFour" data-bs-parent="#faqAccordion">
+                                <div class="accordion-body" id="answerFour">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="accordion-item">
+                            <h2 class="accordion-header" id="headingFive">
+                                <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFive" aria-expanded="false" aria-controls="collapseFive">
+                                    <span id="questionFive"></span>
+                                </button>
+                            </h2>
+                            <div id="collapseFive" class="accordion-collapse collapse" aria-labelledby="headingFive" data-bs-parent="#faqAccordion">
+                                <div class="accordion-body" id="answerFive"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    <!-- Kontak -->
+        <div class="kontak" id="kontak">
+            <h1 style="color: #704FE3;">Kontak<span style="color: #FFD25D;"> Kami</span>.</h1>
+            <div class="kontak-card">
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d126748.60965110475!2d107.56075414260435!3d-6.903271950023029!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e68e6398252477f%3A0x146a1f93d3e815b2!2sBandung%2C%20Kota%20Bandung%2C%20Jawa%20Barat!5e0!3m2!1sid!2sid!4v1719561447847!5m2!1sid!2sid" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade" class="map"></iframe>
+                <form action="{% url 'faq' %}" method="post">
+                    {% if messages %}
+                    <div id="floating-message" class="messages">
+                        {% for message in messages %}
+                            <div class="alert alert-success">
+                                {{ message }}
+                            </div>
+                        {% endfor %}
+                    </div>
+                    {% endif %}
+                    {% csrf_token %}
+                    <div class="input-group">
+                        <input type="text" name="nama" placeholder="Nama">
+                    </div>
+                    <div class="input-group">
+                        <input type="text" name="email" placeholder="Email">
+                    </div>
+                    <div class="input-group">
+                        <input type="text" name="feedback" placeholder="Feedback">
+                    </div>
+                    <button class="btn" type="submit">Kirim Pesan</button>
+                </form>
+            </div>
+        </div>
+
+    <!-- Footer -->
+        <footer class="footer">
+            <div class="footer-container container-fluid">
+            <div class="footer-header">
+                <img src="{% static 'images/index/logoSmartbeez.png' %}" alt="Company Logo" class="footer-logo">
+                <h6>Bermain dan belajar sambil berpetualang <br>bersama SmartBeez</h6>
+                <div class="footer-sosmed">
+                    <div class="social-icons">
+                        <a href="#" style="margin-left: 50px;"><i data-feather="mail"></i></a>
+                        <a href="#"><i data-feather="twitter"></i></a>
+                        <a href="#"><i data-feather="facebook"></i></a>
+                        <a href="#"><i data-feather="instagram"></i></a>
+                        <a href="#"><i data-feather="youtube"></i></a>
+                        <a href="#"><i data-feather="linkedin"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-column" style="margin-left: 200px;">
+                <h4>SmartBeez</h4>
+                <ul>
+                    <li><a href="{% url 'tentangKami' %}">Tentang Kami</a></li>
+                    <li><a href="{% url 'index' %}#features">Keunggulan</a></li>
+                    <li><a href="{% url 'index' %}#testimonial">Testimoni</a></li>
+                </ul>
+            </div>
+            <div class="footer-column">
+                <h4>Produk</h4>
+                <ul>
+                    <li><a href="login.html">Video Learning</a></li>
+                    <li><a href="login.html">Games</a></li>
+                    <li><a href="{% url 'berita' %}">Berita</a></li>
+                </ul>
+            </div>
+            <div class="footer-column">
+                <h4>Lainnya</h4>
+                <ul>
+                    <li><a href="{% url 'faq' %}#faq">Faqs</a></li>
+                    <li><a href="{% url 'faq' %}#kontak">Kontak</a></li>
+                </ul>
+            </div>
+            </div>
+            <div class="footer-bottom">
+            <div class="credit-right" style="text-align: left; justify-content: left; margin-left: 30px;">
+                <p class="text-decoration-none p-3">Created by  <span class="text-warning"> <strong>kelompok 2</strong></span> | &copy; 2024.</p>
+            </div>
+            <div class="credit-center" style="text-align: center; justify-content: center;">
+                <p class="text-decoration-none p-3" >Terms of Service</p>
+            </div>
+            <div class="credit-left" style="text-align: right; justify-content: right; margin-right: 30px;">
+                <p class="text-decoration-none p-3" style="display: flex; align-items: center; margin: 0;">Back to Top<a href="#" class="panah" style="margin-left: 10px;"><i data-feather="arrow-up"></i></a></p>
+            </div>
+            </div>
+        </footer>
+        <script>feather.replace();</script>
+        <script src="{% static '/script/navbar.js' %}"></script>
+        <script src="{% static '/script/faq.js' %}"></script>
+{% endblock %}

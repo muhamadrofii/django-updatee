@@ -1,0 +1,284 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}beranda{% endblock %}
+{% block head %}
+
+<link rel="stylesheet" href="{% static '/style/beranda.css' %}">
+<link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+
+{% endblock %}
+
+{% block content %}
+<!-- Navbar -->
+<nav class="navbar navbar-expand-lg py-1 fixed-top">
+    <div class="container-fluid px-5">
+        <a class="navbar-brand" href="#"><img src="{% static 'images/index/logoSmartbeez.png'%}" class="img-fluid" alt="Logo SmartBeez"></a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav mx-auto mb-2 mb-lg-0 small fw-bolder gap-4" style="visibility: hidden;">
+                <li class="nav-item"><a class="nav-link" href="#">Home</a></li>
+                <li class="nav-item"><a class="nav-link" href="tentangKami.html">Tentang Kami</a></li>
+                <li class="nav-item"><a class="nav-link" href="berita.html">Berita Terkini</a></li>
+                <li class="nav-item"><a class="nav-link" href="faq.html">FAQs</a></li>
+            </ul>
+
+        <!-- Profile Button -->
+        <div class="dropdown">
+            <button class="btn btn-light dropdown-toggle rounded-circle" type="button" id="profileDropdown" data-bs-toggle="dropdown" aria-expanded="false" style="width: 40px; height: 40px; padding: 0;">
+                <img src="{% static 'images/beranda/profile.png' %}" alt="Profile" class="img-fluid rounded-circle" style="width: 100%; height: 100%; object-fit: cover;">
+            </button>
+            <!-- <a href="{% url 'profil' %}" class="btn btn-light dropdown-toggle rounded-circle" id="profileDropdown" style="width: 40px; height: 40px; padding: 0;">
+                <img src="{% static 'images/beranda/profile.png' %}" alt="Profile" class="img-fluid rounded-circle" style="width: 100%; height: 100%; object-fit: cover;">
+            </a> -->
+            
+            
+            <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="profileDropdown">
+                <li><a class="dropdown-item" href="{% url 'profil' %}">My Profile</a></li>
+                <li><a class="dropdown-item" href="settings.html">Settings</a></li>
+                <li><hr class="dropdown-divider"></li>
+                <li><a class="dropdown-item text-danger" href="#" data-bs-toggle="modal" data-bs-target="#logoutModal">Logout</a></li>
+            </ul>
+        </div>
+
+
+    </div>
+    </div>
+    <!-- </div> -->
+</nav>
+
+
+<!-- Modal LOGOUT -->
+<div class="modal fade" id="logoutModal" tabindex="-1" aria-labelledby="logoutModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="logoutModalLabel">Konfirmasi Logout</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                Apakah anda yakin ingin keluar?
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary text-light" data-bs-dismiss="modal">Batal</button>
+                <form method="post" action="{% url 'account_logout' %}">
+                    {% csrf_token %}
+                    <button type="submit" class="btn btn-danger">Logout</button>
+                  </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<!-- Popup Modal -->
+<div class="modal fade" id="welcomeModal" tabindex="-1" aria-labelledby="welcomeModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content" style="border-radius: 15px; background: linear-gradient(135deg, #FFD25D, #FFF1CE);">
+            <div class="modal-header text-center" style="border-bottom: none;">
+                <h5 class="modal-title w-100" id="welcomeModalLabel" style="font-family: 'Poppins', sans-serif; color: #6a1b9a;">
+                Hai Kids!
+                </h5>
+            </div>
+            <div class="modal-body text-center">
+                <img src="{% static 'images/beranda/ballon.png'%}" alt="Balloons" style="width: 100px; animation: float 3s infinite;">
+                <p style="font-size: 1.2rem; color: #4e342e; font-family: 'Poppins', sans-serif;">
+                    Selamat datang di kelas kami, Rudi! 🎉
+                </p>
+                <p style="color: #6a1b9a;">Kami senang kamu di sini. Yuk mulai petualangan belajar yang seru! 🚀</p>
+                <button type="button" class="btn btn-lg" style="border-radius: 25px; background-color: #704FE3; color: #FFFFFF; font-weight: bold;" id="exploreNowButton">
+                    Jelajahi Sekarang!
+                </button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Video Learning Section -->
+
+
+<div class="container my-5">
+    <h1 class="text-center" style="color: #704FE3; margin-top: 100px;">Engage with <span style="color: #FFD25D;">Learning Videos</span>.</h1>
+    <p class="text-center text-muted mb-4">Interactive videos for kids and insightful lessons for parents!</p>
+    <div class="row g-4">
+        <!-- Kids Video Section -->
+        <div class="col-lg-6">
+            <div class="card shadow-lg border-0" style="border-radius: 15px;">
+                <img src="{% static 'images/kids/angka1.png'%}" class="card-img-top" alt="Learning Videos for Kids" style="border-radius: 15px 15px 0 0;">
+                <div class="card-body text-center">
+                    <h5 class="card-title" style="color: #704FE3; font-weight: bold;">Fun & Interactive for Kids</h5>
+                    <p class="card-text text-muted">Exciting videos that make learning enjoyable. Perfect for young minds to explore and grow!</p>
+                    <a href="{%url 'kids'%}" class="btn btn-warning btn-lg px-4 rounded-5" style="color: #FFF1CE; font-weight: bold;">Explore Videos</a>
+                </div>
+            </div>
+        </div>
+        <!-- Parents Video Section -->
+        <div class="col-lg-6">
+            <div class="card shadow-lg border-0" style="border-radius: 15px;">
+                <img src="{% static 'images/parents/bekalSekolah.jpg'%}" class="card-img-top" alt="Learning Videos for Parents" style="border-radius: 15px 15px 0 0;">
+                <div class="card-body text-center">
+                    <h5 class="card-title" style="color: #704FE3; font-weight: bold;">Insightful Lessons for Parents</h5>
+                    <p class="card-text text-muted">Empowering parents with tools and knowledge to guide their kids through an exciting learning journey.</p>
+                    <a href="{%url 'parents'%}" class="btn btn-warning btn-lg px-4 rounded-5" style="color: #FFF1CE; font-weight: bold;">Explore Videos</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Games Section -->
+<div class="games">
+    <div class="container my-5">
+        <!-- Judul dan Deskripsi -->
+        <h1 style="color: var(--firstpurple);">Educational<span style="color: var(--firstyellow);"> Games</span>.</h1>
+        <p class="text-center text-muted">
+            Discover fun and educational games designed to make learning enjoyable for kids.
+        </p>
+
+        <!-- Grid Games -->
+        <div class="row g-4">
+            <!-- Card 1 -->
+            <div class="col-lg-4 col-md-6">
+                <div class="game-card">
+                    <img src="https://storage.googleapis.com/a1aa/image/mfWZffVPXHZxgpsEC5wUJlqoWUhGXw6MzB21gGH5MfKSbvKPB.jpg" alt="Candy Shop Arrays">
+                    <div class="game-info">
+                        <h3>Candy Shop Arrays</h3>
+                        <p>A fun game to teach kids about arrays using a candy shop theme.</p>
+                    </div>
+                    <button class="play-button">Play</button>
+                </div>
+            </div>
+
+            <!-- Card 2 -->
+            <div class="col-lg-4 col-md-6">
+                <div class="game-card">
+                    <img src="https://storage.googleapis.com/a1aa/image/5Uljeff52ewGfims367dF5ag97om4fNrGTLYMDiGGruVt9q8E.jpg" alt="Homophone Sentence Building">
+                    <div class="game-info">
+                        <h3>Homophone Sentence Building</h3>
+                        <p>Build sentences and learn homophones with this engaging game.</p>
+                    </div>
+                    <button class="play-button">Play</button>
+                </div>
+            </div>
+
+            <!-- Card 3 -->
+            <div class="col-lg-4 col-md-6">
+                <div class="game-card">
+                    <img src="https://storage.googleapis.com/a1aa/image/K5qDffyjgfPVEJWUsxyjFrNeYE4b2KiTB2gLG5XOADqf2eq8E.jpg" alt="Complete Sentence Sorting">
+                    <div class="game-info">
+                        <h3>Complete Sentence Sorting</h3>
+                        <p>Sort sentences to complete the quest and learn grammar effectively.</p>
+                    </div>
+                    <button class="play-button">Play</button>
+                </div>
+            </div>
+
+            <!-- Card 4 -->
+            <div class="col-lg-4 col-md-6">
+                <div class="game-card">
+                    <img src="https://storage.googleapis.com/a1aa/image/Zt0e8Nx82EyXQaes2U5ncnW2aXQPO1AISZkzscjqvSUy2ryTA.jpg" alt="Jumpy: Find the Multiples">
+                    <div class="game-info">
+                        <h3>Jumpy: Find the Multiples</h3>
+                        <p>Jump and find multiples in this energetic math game.</p>
+                    </div>
+                    <button class="play-button">Play</button>
+                </div>
+            </div>
+
+            <!-- Card 5 -->
+            <div class="col-lg-4 col-md-6">
+                <div class="game-card">
+                    <img src="https://storage.googleapis.com/a1aa/image/6uJrGe4g7lUaHK782ZcXF5RvMTshExk3dZoGar3Ueusx2ryTA.jpg" alt="Jumpy: Multiplication Facts">
+                    <div class="game-info">
+                        <h3>Jumpy: Multiplication Facts</h3>
+                        <p>Learn multiplication facts with this interactive jumping game.</p>
+                    </div>
+                    <button class="play-button">Play</button>
+                </div>
+            </div>
+
+            <!-- Card 6 -->
+            <div class="col-lg-4 col-md-6">
+                <div class="game-card">
+                    <img src="https://storage.googleapis.com/a1aa/image/1FdrzdcfFo2bfkViagdIz5H93mJ5UWeMsLYOgQIDortytXlnA.jpg" alt="Bubble Buster: Addition to 10">
+                    <div class="game-info">
+                        <h3>Bubble Buster: Addition to 10</h3>
+                        <p>Pop bubbles while practicing addition skills up to 10.</p>
+                    </div>
+                    <button class="play-button">Play</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Footer -->
+<footer class="footer">
+    <div class="footer-container container-fluid">
+        <div class="footer-header">
+            <img src="{% static 'images/index/logoSmartbeez.png'%}" alt="Company Logo" class="footer-logo">
+            <h6>Bermain dan belajar sambil berpetualang <br>bersama SmartBeez</h6>
+            <div class="footer-sosmed">
+                <div class="social-icons">
+                    <a href="#" style="margin-left: 50px;"><i data-feather="mail"></i></a>
+                    <a href="#"><i data-feather="twitter"></i></a>
+                    <a href="#"><i data-feather="facebook"></i></a>
+                    <a href="#"><i data-feather="instagram"></i></a>
+                    <a href="#"><i data-feather="youtube"></i></a>
+                    <a href="#"><i data-feather="linkedin"></i></a>
+                </div>
+            </div>
+        </div>
+        <div class="footer-column" style="margin-left: 200px;">
+            <h4>SmartBeez</h4>
+            <ul>
+                <li><a href="tentangKami.html">Tentang Kami</a></li>
+                <li><a href="index.html#features">Keunggulan</a></li>
+                <li><a href="index.html#testimonial">Testimoni</a></li>
+            </ul>
+        </div>
+        <div class="footer-column">
+            <h4>Produk</h4>
+            <ul>
+                <li><a href="login.html">Video Learning</a></li>
+                <li><a href="login.html">Games</a></li>
+                <li><a href="berita.html">Berita</a></li>
+            </ul>
+        </div>
+        <div class="footer-column">
+            <h4>Lainnya</h4>
+            <ul>
+                <li><a href="faq.html#faq">Faqs</a></li>
+                <li><a href="faq.html#kontak">Kontak</a></li>
+            </ul>
+        </div>
+    </div>
+    <div class="footer-bottom">
+        <div class="credit-right" style="text-align: left; justify-content: left; margin-left: 30px;">
+            <p class="text-decoration-none p-3">Created by  <span class="text-warning"> <strong>kelompok 2</strong></span> | &copy; 2024.</p>
+        </div>
+        <div class="credit-center" style="text-align: center; justify-content: center;">
+            <p class="text-decoration-none p-3" >Terms of Service</p>
+        </div>
+        <div class="credit-left" style="text-align: right; justify-content: right; margin-right: 30px;">
+            <p class="text-decoration-none p-3" style="display: flex; align-items: center; margin: 0;">Back to Top<a href="#" class="panah" style="margin-left: 10px;"><i data-feather="arrow-up"></i></a></p>
+        </div>
+        
+    </div>
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+<script>feather.replace();</script>
+<!-- <script src="{%static '/script/popUp.js'%}"></script> -->
+{% endblock %}
+{% block javascript %}
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.min.js" integrity="sha384-0pUGZvbkm6XF6gxjEnlmuGrJXVbNuzT9qBBavbLwCsOGabYfZo0T0to5eqruptLy" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/feather-icons/dist/feather.min.js"></script>
+
+<!-- Tempat untuk memasukkan stylesheet atau JS yang spesifik halaman -->
+{% endblock %}

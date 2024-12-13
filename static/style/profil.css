@@ -1,0 +1,146 @@
+:root {
+  --firstpurple: #704FE3;
+  --secondpurple: #DEC8FE;
+  --firstyellow:#FFD25D;
+  --secondyellow: #FFF1CE;
+}
+  
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  outline: none;
+  border: none;
+  text-decoration: none;
+}
+  
+html {
+  scroll-behavior: smooth;
+}
+  
+body {
+  font-family: 'Poppins', sans-serif;
+  width: 100%;
+}
+  
+.box-area {
+  max-width: 700px;
+  background-color: #fff;
+  margin: 40px;
+}
+
+.discard-button {
+  color: #464646;
+  border: 1px solid #464646;
+  background-color: #fff;
+  text-decoration: none;
+  border-radius: 3px;
+  padding: 5px;
+}
+
+.discard-button:hover {
+  color: #464646;
+  border: 1px solid #FFD25D;
+  background-color: #FFD25D;
+  text-decoration: none;
+}
+
+.btn-purple {
+  background-color: #6f42c1;
+  color: #fff;
+}
+
+.btn-purple:hover {
+  background-color: #ffffff;
+  color: #6f42c1;
+  border: 1px solid #6f42c1;
+}
+
+.form-control {
+  font-size: 16px;
+}
+
+.profile-picture img{
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    background-color: #e0e0e0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto;
+    overflow: hidden;
+    cursor: pointer;
+}
+
+#button-profile button:hover {
+    color: #fff;
+}
+
+#button-profile a {
+    text-decoration: none;
+    color: inherit;
+}
+
+.informasi-anak {
+  margin-bottom: 40px;
+}
+
+/* CSS Modal */
+.modal {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: fixed;
+  z-index: 1;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+}
+
+.modal .modal-container {
+  background-color: #fff;
+  padding: 20px;
+  border: 1px solid #888;
+  width: 80%;
+  max-width: 700px;
+  border-radius: 10px;
+  position: relative;
+  overflow: hidden;
+}
+
+.modal .profile-content {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 15px;
+  margin: 20px 0px 20px 0px;
+}
+
+.modal .profile-content img {
+  max-width: 120px;
+  height: auto;
+  border-radius: 50%;
+  cursor: pointer;
+  transition: transform 0.2s ease-in-out;
+}
+
+.modal .profile-content img:hover {
+  transform: scale(1.1);
+}
+
+.modal .close-icon {
+  position: absolute;
+  right: 15px;
+  top: 10px;
+  font-size: 24px;
+  font-weight: bold;
+  color: var(--firstyellow);
+  cursor: pointer;
+}
+
+.modal .close-icon:hover {
+  color: var(--firstpurple);
+}

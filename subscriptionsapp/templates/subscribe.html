@@ -1,0 +1,249 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Subscribe{% endblock %}
+{% block head %}
+<link rel="stylesheet" href="{% static 'style/subscribe.css' %}">
+<!-- <script src="{% static 'js/navbar.js' %}"></script> -->
+<!-- <script src="{% static 'js/berita.js' %}"></script> -->
+<script type="text/javascript">
+    function updatePrice() {
+        var plan = document.getElementById('id_plan').value;
+        var priceDisplay = document.getElementById('price-display');
+        var amountField = document.getElementById('id_amount');
+
+        var price;
+        if (plan == 'basic') {
+            price = 29000;  // Harga untuk Basic Plan
+        } else if (plan == 'premium') {
+            price = 99000;  // Harga untuk Premium Plan
+        } else if (plan == 'ultimate') {
+            price = 199000;  // Harga untuk Enterprise Plan
+        }
+
+        priceDisplay.textContent = 'Rp ' + price.toLocaleString();  // Menampilkan harga dalam format Rupiah
+        amountField.value = price;  // Menyimpan harga di field hidden
+    }
+</script>
+{% endblock %}
+
+{% block content %}
+<div class="container mt-5 px-5">
+
+    <div class="mb-4">
+
+        <h2>Confirm order and pay</h2>
+        <span>please make the payment, after that you can enjoy all the features and benefits.</span>
+
+    </div>
+
+    <div class="row">
+        <form method="POST" action="{% url 'create_payment_link' %}">
+            {% csrf_token %}
+
+        <div class="col-md-8">
+
+
+            <div class="card p-3">
+
+                <h6 class="text-uppercase">Form Langganan</h6>
+                <div class="col-md-6">
+                    
+                </div>
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email" value="{{ user.email }}" required>
+            
+                <label for="phone">Phone Number:</label>
+                <input type="text" id="phone" name="phone" value="{% if user.phone_number %}{{ user.phone_number }}{% else %}none{% endif %}" required>
+            
+
+                <!-- <div class="inputbox mt-3"> <input type="text" name="name" class="form-control" required="required"> -->
+                    <!-- <span>Nama Orang Tua</span> -->
+                </div>
+
+
+                <div class="row">
+
+                    <div class="col-md-6">
+
+                        <!-- <div class="inputbox mt-3 mr-2"> <input type="text" name="name" class="form-control"
+                                required="required"> <i class="fa fa-credit-card"></i> <span>Pekerjaan</span>
+                        </div> -->
+                        <div class="col-md-6">
+                            <label for="postalCode" class="form-label">Pilih langganan</label>
+                            <select name="plan" class="form-select" id="id_plan" onchange="updatePrice()">
+                                <option selected disabled>Pilih Langganan</option>
+                                <option value="basic">1 Bulan</option>
+                                <option value="premium">6 Bulan</option>
+                                <option value="ultimate">12 Bulan</option>
+                            </select>
+                        </div>
+                        <div>
+                            <!-- <label for="price-display" class="form-label">Harga</label> -->
+                            <!-- <p id="price-display">Rp 0</p> -->
+                        </div>
+                        <!-- <input type="hidden" id="id_amount" name="amount" value=""> -->
+
+
+                    </div>
+
+                    <div class="col-md-6">
+
+                        <div class="d-flex flex-row">
+
+
+                            <!-- <div class="inputbox mt-3 mr-2"> <input type="text" name="name" class="form-control" required="required"> <span>Email</span>
+                            </div>
+
+                            <div class="inputbox mt-3 mr-2"> <input type="text" name="name" class="form-control" required="required"> <span>No Telepon</span>
+                            </div> -->
+                        </div>
+                    </div>
+
+
+                </div>
+
+
+
+                <div class="mt-4 mb-4">
+
+                    <!-- <h6 class="text-uppercase">Anak</h6> -->
+
+
+                    <div class="row mt-3">
+
+                        <!-- <div class="col-md-6">
+
+                            <div class="inputbox mt-3 mr-2"> <input type="text" name="name" class="form-control"
+                                    required="required"> <span>Nama Anak</span> </div>
+
+
+                        </div>
+
+
+                        <div class="col-md-6">
+
+                            <div class="inputbox mt-3 mr-2"> <input type="text" name="name" class="form-control"
+                                    required="required"> <span>Umur</span> </div>
+                        </div> -->
+
+
+
+
+                    </div>
+
+
+                    <div class="row mt-2">
+
+                        <!-- <div class="col-md-6">
+
+                            <div class="inputbox mt-3 mr-2"> <input type="text" name="name" class="form-control"
+                                    required="required"> <span>State/Province</span> </div>
+
+
+                        </div>
+
+
+                        <div class="col-md-6">
+
+                            <div class="inputbox mt-3 mr-2"> <input type="text" name="name" class="form-control"
+                                    required="required"> <span>Zip code</span> </div>
+
+
+                        </div> -->
+
+
+
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <div class="mt-4 mb-4 d-flex justify-content-between">
+
+
+                <!-- <span>Previous step</span> -->
+
+
+                <!-- <button class="btn btn-success px-3">Pay $840</button> -->
+                <div>
+                    <!-- <label for="price-display" class="form-label">Harga</label> -->
+                    <!-- <p id="price-display">Rp 0</p> -->
+                </div>
+
+
+
+
+            </div>
+
+        </div>
+
+        <div class="col-md-4">
+
+            <div class="card card-blue p-3 text-white mb-3">
+
+                <span>You have to pay</span>
+                <div class="d-flex flex-row align-items-end mb-3">
+                    <!-- <h1 class="mb-0 yellow">$549</h1> <span>.99</span> -->
+                    <h1 id="price-display">Rp 0</h1>
+                </div>
+                <div>
+                    <span id="original-price" style="text-decoration: line-through; color: grey;">Rp 0</span>
+                    <span id="discount-price" style="color: green; font-weight: bold;">Rp 0</span>
+                    <span id="price-display"></span>
+                </div>
+                <!-- Field hidden untuk menyimpan harga -->
+                <input type="hidden" id="id_amount" name="amount" value="original-price">
+                <span>Enjoy all the features and perk after you complete the payment</span>
+                <a href="#" class="yellow decoration">Know all the features</a>
+                
+                <button type="submit" class="btn btn-primary">Proses Pembayaran</button>
+            </form>
+                <div class="hightlight">
+
+                    <span></span>
+
+
+                </div>
+
+            </div>
+
+        </div>
+        <!-- <button type="submit" class="btn btn-primary">Proses Pembayaran</button>
+    </form> -->
+    <script>
+        document.querySelector('form').addEventListener('submit', function(e) {
+            e.preventDefault();  // Mencegah pengiriman form standar
+            const formData = new FormData(this); // Mengambil data dari form
+
+            fetch('/create-payment-link/', { // Endpoint Django
+                method: 'POST',
+                headers: {
+                    'X-CSRFToken': '{{ csrf_token }}' // Tambahkan CSRF token
+                },
+                body: formData
+            })
+            .then(response => response.json()) // Parse response sebagai JSON
+            .then(data => {
+                if (data.payment_url) {
+                    window.location.href = data.payment_url; // Redirect ke Midtrans
+                } else {
+                    alert('Error: ' + data.error); // Tampilkan error
+                }
+            })
+            .catch(error => {
+                alert('Network error: ' + error.message);
+            });
+        });
+    </script>
+
+    </div>
+</div>
+{% endblock %}
+
+{% block javascript %}
+
+{% endblock %}

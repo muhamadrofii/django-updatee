@@ -1,0 +1,223 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Profile{% endblock %}
+{% block head %}
+
+<link rel="stylesheet" href="{% static '/style/profil.css' %}">
+
+<link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+
+{% endblock %}
+
+{% block content %}
+
+<div class="container d-flex justify-content-center align-items-center min-vh-100">
+    <div class="row border rounded-4 py-4 px-5 bg-white shadow box-area">
+        
+        <button class="btn btn-ungu btn-sm" style="max-width: 60px; margin-bottom:20px;">
+            <a href="{% url 'beranda' %}" class="btn btn-purple btn-sm d-flex align-items-center" style="max-width: 70px;">
+            <i data-feather="arrow-left" style="font-size: 30px;"></i>
+            </a>
+        </button>
+
+            <!-- Header-->
+            <form method="post" enctype="multipart/form-data">
+                {% csrf_token %}
+        <div class="mb-4 d-flex justify-content-between align-items-center">
+            <div>
+                <h4 class="fw-bold">Your Profile</h4>
+                <p class="text-muted">Last edit on <span class="fw-semibold">12 February 2024</span></p>
+            </div>
+            <div class="d-flex gap-2">
+                <button class="discard-button" onclick="location.href='beranda.html';">Discard</button>
+
+                <!-- <button class="btn btn-purple btn-sm">Save</button> -->
+                
+                <button type="submit" class="btn btn-purple btn-sm">Simpan Perubahan</button>
+            </div>
+        </div>
+
+        <!-- Foto Profil -->
+         
+        <div class="mb-4 text-center">
+            <h5 class="fw-bold">Profile picture</h5>
+            <div class="profile-picture my-3" id="profilePictureArea" data-bs-toggle="modal" data-bs-target="#imageModal">
+                <!-- <img src="{{ MEDIA_URL }}{{ current_avatar }}" id="selectedProfilePicture" alt="Profile Picture"> -->
+                <img src="/media/{{ current_avatar }}" alt="Avatar" id="selectedProfilePicture" alt="Profile Picture">
+
+            </div>
+            <div class="d-flex justify-content-center gap-3" id="button-profile">
+                <button class="btn btn-outline-primary btn-sm"><a href="#" class="item-detail-button">Change picture</a></button>
+
+                <h5>Upload Avatar</h5>
+                <label for="avatar" class="btn btn-outline-primary btn-sm">Pilih Avatar</label>
+                <input type="file" id="avatar" name="avatar" style="display:none;" accept="image/*">
+                <!-- <button class="btn btn-outline-primary btn-sm item-detail-button">Change picture</button> -->
+
+                
+                <!-- <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="item-detail-modal">
+                    Launch static backdrop modal
+                  </button> -->
+                <button class="btn btn-outline-danger btn-sm">Delete picture</button>
+            </div>
+        </div>
+
+        <!-- Informasi Orang Tua -->
+        <div class="informasi-orang-tua mb-4">
+            <h5 class="fw-bold">Informasi Orang Tua</h5>
+            <form>
+                <div class="row g-3">
+                    <div class="col-md-6">
+                        <label for="nama" class="form-label">Nama Lengkap</label>
+                        <input type="text" class="form-control" id="fullname" name="fullname" value="{{ fullname }}" required>
+                        <!-- <form method="post">
+                            {% csrf_token %}
+                            <h4>Edit Informasi Akun</h4>
+                            {{ user_form.as_p }}
+                            <h4>Edit Informasi Profil</h4>
+                            {{ profile_form.as_p }}
+                            <button type="submit">Simpan Perubahan</button>
+                        </form> -->
+                    </div>
+                    <div class="col-md-6">
+                        <label for="pekerjaan" class="form-label">Pekerjaan</label>
+                        <input type="text" class="form-control" id="pekerjaan" name="pekerjaan" value="{{ profil.pekerjaan }}" required>
+                    </div>
+                    <div class="col-md-6">
+                        <label for="email" class="form-label">Email</label>
+                        <input type="email" class="form-control" id="email" name="email" value="{{ profil.user.email }}" required>
+                    </div>
+                    <div class="col-md-6">
+                        <label for="noTelp" class="form-label">Nomer Telepon</label>
+                        <input type="tel" class="form-control" id="noTelp" name="nomor_telepon" value="{{ profil.nomor_telepon }}" required>
+                    </div>
+                    <div class="col-md-12">
+                        <label for="alamat" class="form-label">Alamat</label>
+                        <input type="text" class="form-control" id="alamat" name="alamat" value="{{ profil.alamat }}" required>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </form>
+
+
+        <!-- Informasi Anak -->
+        <div class="informasi-anak">
+            <h5 class="fw-bold">Informasi Anak</h5>
+            <form>
+                <div class="row g-3">
+                    <div class="col-md-6">
+                        <label for="nama" class="form-label">Nama Lengkap</label>
+                        <!-- <p>Nama Lengkap Anak: {{ profil_child.nama_lengkap }}</p> -->
+                        <input type="text" class="form-control" id="nama_lengkap" name="nama_lengkap" value="{{ profil_child.nama_lengkap }}" required>
+                        <!-- <input type="text" class="form-control" id="nama" placeholder="Putri Suna"> -->
+                    </div>
+                    <div class="col-md-6">
+                        <label for="umur" class="form-label">Umur</label>
+                        <input type="text" class="form-control" id="umur" placeholder="4 Tahun">
+                    </div>
+                    <div class="col-md-6">
+                        <label for="postalCode" class="form-label">Pendidikan</label>
+                        <select class="form-select" id="pendidikan">
+                            <option selected disabled>Pilih Pendidikan</option>
+                            <option value="tk_a">Belum Sekolah</option>
+                            <option value="tk_a">TK A</option>
+                            <option value="tk_b">TK B</option>
+                            <option value="sd_kelas_1">SD Kelas 1</option>
+                            <option value="sd_kelas_2">SD Kelas 2</option>
+                            <option value="sd_kelas_3">SD Kelas 3</option>
+                            <option value="sd_kelas_4">SD Kelas 4</option>
+                            <option value="sd_kelas_5">SD Kelas 5</option>
+                            <option value="sd_kelas_6">SD Kelas 6</option>
+                        </select>
+                    </div>
+                    <div class="col-md-6">
+                        <label for="minat" class="form-label">Bidang Minat</label>
+                        <input type="text" class="form-control" id="minat" placeholder="Berhitung">
+                    </div>
+                    {% if profil_child %}
+                    <p>Nama Lengkap Anak: {{ profil_child.nama_lengkap }}</p>
+                    <p>Umur: {{ profil_child.umur }} tahun</p>
+                    <!-- <p>Pendidikan: {{ profil_child.get_pendidikan_display }}</p> -->
+                    <!-- <p>Bidang Minat: {{ profil_child.bidang_minat }}</p> -->
+                {% else %}
+                    <p>Profil anak tidak ditemukan.</p>
+                {% endif %}
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+<!-- {% if not current_avatar %}show{% endif %}"  -->
+<div class="modal" id="item-detail-modal" tabindex="-1" aria-labelledby="item-detail-modalLabel" aria-hidden="true">
+    <div class="modal-container">
+        <a href="#" class="close-icon"><i data-feather="x"></i></a>
+        <!-- <div class="profile-content"> -->
+            <!-- <img src="assets/profil/fotoProfil1.png" class="img-option" alt="Profile 1" onclick="selectProfilePicture(this)">
+            <img src="assets/profil/fotoProfil2.png" class="img-option" alt="Profile 2" onclick="selectProfilePicture(this)">
+            <img src="assets/profil/fotoProfil3.png" class="img-option" alt="Profile 3" onclick="selectProfilePicture(this)">
+            <img src="assets/profil/fotoProfil4.png" class="img-option" alt="Profile 4" onclick="selectProfilePicture(this)">
+            <img src="assets/profil/fotoProfil5.png" class="img-option" alt="Profile 1" onclick="selectProfilePicture(this)">
+            <img src="assets/profil/fotoProfil6.png" class="img-option" alt="Profile 2" onclick="selectProfilePicture(this)">
+            <img src="assets/profil/fotoProfil7.png" class="img-option" alt="Profile 3" onclick="selectProfilePicture(this)">
+            <img src="assets/profil/fotoProfil8.png" class="img-option" alt="Profile 4" onclick="selectProfilePicture(this)">
+            <img src="assets/profil/fotoProfil9.png" class="img-option" alt="Profile 1" onclick="selectProfilePicture(this)">
+            <img src="assets/profil/fotoProfil10.png" class="img-option" alt="Profile 2" onclick="selectProfilePicture(this)">
+            <img src="assets/profil/tidakAdaProfil.png" class="img-option" alt="Profile 2" onclick="selectProfilePicture(this)"> -->
+            <div class="profile-content">
+                <!-- <img src="{% static 'images/profil/fotoProfil1.png' %}" class="img-option" alt="Profile 1" onclick="selectProfilePicture(this)">
+                <img src="{% static 'images/profil/fotoProfil2.png' %}" class="img-option" alt="Profile 1" onclick="selectProfilePicture(this)">
+                <img src="{% static 'images/profil/fotoProfil3.png' %}" class="img-option" alt="Profile 1" onclick="selectProfilePicture(this)">
+                <img src="{% static 'images/profil/fotoProfil4.png' %}" class="img-option" alt="Profile 1" onclick="selectProfilePicture(this)">
+                <img src="{% static 'images/profil/fotoProfil5.png' %}" class="img-option" alt="Profile 1" onclick="selectProfilePicture(this)">
+                <img src="{% static 'images/profil/fotoProfil6.png' %}" class="img-option" alt="Profile 1" onclick="selectProfilePicture(this)">
+                <img src="{% static 'images/profil/fotoProfil7.png' %}" class="img-option" alt="Profile 1" onclick="selectProfilePicture(this)">
+                <img src="{% static 'images/profil/fotoProfil8.png' %}" class="img-option" alt="Profile 1" onclick="selectProfilePicture(this)">
+                <img src="{% static 'images/profil/fotoProfil9.png' %}" class="img-option" alt="Profile 1" onclick="selectProfilePicture(this)">
+                <img src="{% static 'images/profil/fotoProfil10.png' %}" class="img-option" alt="Profile 1" onclick="selectProfilePicture(this)">
+                <img src="{% static 'images/profil/tidakAdaProfil.png' %}" class="img-option" alt="Profile 1" onclick="selectProfilePicture(this)">
+                <img src="/media/avatar/fotoProfil1.png" alt="Profile Picture"> -->
+                <!-- <p>perbatasan</p> -->
+                {% for avatar in avatars %}
+                <div>
+                    
+                    <form method="POST" action="{% url 'profil' %}">
+                        {% csrf_token %}
+                        <input type="hidden" name="avatar" value="{{ avatar }}">
+                        <button type="submit">
+                            <img src="/media/avatar/{{ avatar }}" alt="Avatar {{ forloop.counter }}" onclick="selectProfilePicture(this)">
+                        </button>
+                    </form>
+                </div>
+            {% empty %}
+                <p>Tidak ada avatar yang tersedia.</p>
+            {% endfor %}
+            
+            <!-- </div> -->
+            </div>
+    </div>
+</div>
+
+{% endblock %}
+
+{% block javascript %}
+<!-- Tempat untuk memasukkan stylesheet atau JS yang spesifik halaman -->
+<script>feather.replace();</script>
+<script src="{% static 'js/profil.js' %}"></script>
+    <!-- <script>
+        window.onload = function() {
+            // Cari elemen tombol close
+            const closeButton = document.querySelector('.close-icon');
+            
+            // Jika tombol close ditemukan, trigger klik untuk menutup modal
+            if (closeButton) {
+                closeButton.click(); // Trigger klik pada tombol close
+            }
+        };
+    </script> -->
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.min.js"></script>
+{% endblock %}

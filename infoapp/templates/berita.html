@@ -1,0 +1,260 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Berita Terkini{% endblock %}
+{% block head %}
+
+<link rel="stylesheet" href="{% static 'style/berita.css' %}">
+<script src="{% static 'js/navbar.js' %}"></script>
+<script src="{% static 'js/berita.js' %}"></script>
+{% endblock %}
+
+{% block content %}
+
+<!-- Navbar -->
+<nav class="navbar navbar-expand-lg py-1 fixed-top">
+    <div class="container-fluid px-5">
+       <a class="navbar-brand" href="#"><img src="{% static 'images/index/logoSmartbeez.png' %}" class="img-fluid" alt="Logo SmartBeez"></a>
+       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+       </button>
+       <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav mx-auto mb-2 mb-lg-0 small fw-bolder gap-4">
+             <li class="nav-item"><a class="nav-link" href="{% url 'index' %}">Home</a></li>
+             <li class="nav-item"><a class="nav-link" href="{% url 'tentangKami' %}">Tentang Kami</a></li>
+             <li class="nav-item"><a class="nav-link" href="{% url 'berita' %}">Berita Terkini</a></li>
+             <li class="nav-item"><a class="nav-link" href="{% url 'faq' %}">FAQs</a></li>
+          </ul>
+       <div class="d-flex gap-1">
+          <a class="btn btn-login rounded-5" href="login.html">Login</a>
+          <a class="btn btn-outline-warning rounded-5" href="signUp.html">Sign Up</a>
+       </div>
+    </div>
+ </nav>
+
+<!-- Kategori Berita -->
+ <section class="news-category">
+    <h1 style="color: #704FE3;">Berita<span style="color: #FFD25D;"> Terkini</span>.</h1>
+    <button onclick="filterNews('all')">All</button>
+    <button onclick="filterNews('childGrowth')">Tumbuh Kembang Anak</button>
+    <button onclick="filterNews('parenting')">Tips Parenting</button>
+    <button onclick="filterNews('childFood')">Referensi Masakan</button>
+    <button onclick="filterNews('mentalHealth')">Pengaruh Kesehatan Mental</button>
+ </section>
+
+<!-- Berita -->
+ <section class="container news-section" id="newsContainer">
+    <!-- Tumbuh Kembang Anak -->
+    <div class="news-card" data-category="childGrowth" onclick="window.open('https://hellosehat.com/parenting/anak-6-sampai-9-tahun/perkembangan-anak/perkembangan-emosi-anak/', '_blank')">
+       <img src="{% static 'images/berita/childGrowth1.png' %}" alt="childGrowth">
+       <h5>Mengulik Tahapan Perkembangan Emosi Anak Usia 6-9 tahun</h5>
+       <a href="https://hellosehat.com/parenting/anak-6-sampai-9-tahun/perkembangan-anak/perkembangan-emosi-anak/" target="_blank">Read More</a>
+    </div>
+    <div class="news-card" data-category="childGrowth" onclick="window.open('https://kumparan.com/kumparanmom/riset-4-support-system-kunci-bagi-ibu-dalam-mendukung-tumbuh-kembang-anak-21p81QUBpYs/1', '_blank')">
+       <img src="{% static 'images/berita/childGrowth2.jpg' %}" alt="childGrowth">
+       <h5>Riset: 4 Support System Kunci bagi Ibu dalam Mendukung Tumbuh Kembang Anak</h5>
+       <a href="https://kumparan.com/kumparanmom/riset-4-support-system-kunci-bagi-ibu-dalam-mendukung-tumbuh-kembang-anak-21p81QUBpYs/1" target="_blank">Read More</a>
+    </div>
+    <div class="news-card" data-category="childGrowth" onclick="window.open()">
+       <img src="{% static 'images/berita/childGrowth3.webp' %}" alt="childGrowth">
+       <h5>Mengenal Tahapan Tumbuh Kembang Anak Usia 1 hingga 5 Tahun</h5>
+       <a href="https://hellosehat.com/parenting/anak-6-sampai-9-tahun/perkembangan-anak/perkembangan-emosi-anak/" target="_blank">Read More</a>
+    </div>
+    <div class="news-card" data-category="childGrowth" onclick="window.open('https://www.family.abbott/id-id/pediasure/tools-and-resources/infos-about-child-growth/child-growth/tahapan-perkembangan-anak.html', '_blank')">
+       <img src="{% static 'images/berita/childGrowth4.jpg' %}" alt="childGrowth">
+       <h5>Mengenal Tahapan Perkembangan Anak Anda Sesuai Umurnya</h5>
+       <a href="https://www.family.abbott/id-id/pediasure/tools-and-resources/infos-about-child-growth/child-growth/tahapan-perkembangan-anak.html" target="_blank">Read More</a>
+    </div>
+    <div class="news-card" data-category="childGrowth" onclick="window.open('https://persadahospital.co.id/artikel/anak/kenali-dan-cermati-apa-saja-tahapan-tumbuh-kembang-anak', '_blank')">
+       <img src="{% static 'images/berita/childGrowth5.webp' %}" alt="childGrowth">
+       <h5>Tahapan Tumbuh Kembang Anak Yang Perlu Dicermati</h5>
+       <a href="https://persadahospital.co.id/artikel/anak/kenali-dan-cermati-apa-saja-tahapan-tumbuh-kembang-anak" target="_blank">Read More</a>
+    </div>
+    <div class="news-card" data-category="childGrowth" onclick="window.open('https://www.prenagen.com/id/tumbuh-kembang-anak', '_blank')">
+       <img src="{% static 'images/berita/childGrowth6.jpg' %}" alt="childGrowth">
+       <h5>Kenali Tumbuh Kembang Anak Usia Dini Yang Ideal</h5>
+       <a href="https://www.prenagen.com/id/tumbuh-kembang-anak" target="_blank">Read More</a>
+    </div>
+    <div class="news-card" data-category="childGrowth" onclick="window.open('https://herminahospitals.com/id/articles/tumbuh-kembang-anak-balita.html', '_blank')">
+       <img src="{% static 'images/berita/childGrowth7.jpg' %}" alt="childGrowth">
+       <h5>Kenali Tumbuh Kembang Anak Usia Dini Yang Ideal</h5>
+       <a href="https://herminahospitals.com/id/articles/tumbuh-kembang-anak-balita.html" target="_blank">Read More</a>
+    </div>
+    <div class="news-card" data-category="childGrowth" onclick="window.open('https://kids.grid.id/read/473848807/10-hal-yang-harus-dipertimbangkan-saat-membeli-mainan-edukatif-untuk-anak', '_blank')">
+       <img src="{% static 'images/berita/childGrowth8.jpg' %}" alt="childGrowth">
+       <h5>Kenali Tumbuh Kembang Anak Usia Dini Yang Ideal</h5>
+       <a href="https://kids.grid.id/read/473848807/10-hal-yang-harus-dipertimbangkan-saat-membeli-mainan-edukatif-untuk-anak" target="_blank">Read More</a>
+    </div>
+    <div class="news-card" data-category="childGrowth" onclick="window.open('https://kids.grid.id/read/473354718/7-manfaat-pergi-piknik-untuk-mendukung-tumbuh-kembang-anak-akubacaakutahu', '_blank')">
+       <img src="{% static 'images/berita/childGrowth9.jpg' %}" alt="childGrowth">
+       <h5>Kenali Tumbuh Kembang Anak Usia Dini Yang Ideal</h5>
+       <a href="https://kids.grid.id/read/473354718/7-manfaat-pergi-piknik-untuk-mendukung-tumbuh-kembang-anak-akubacaakutahu" target="_blank">Read More</a>
+    </div>
+
+    <!-- Tips Parenting -->
+    <div class="news-card" data-category="parenting" onclick="window.open('https://www.nutriclub.co.id/artikel/untuk-mama/lifestyle/parental-burnout', '_blank')">
+       <img src="{% static 'images/berita/parenting1.jfif' %}" alt="parenting">
+       <h5>5 Cara Mengatasi Parental Burnout Bagi Ibu yang Bekerja</h5>
+       <a href="https://www.nutriclub.co.id/artikel/untuk-mama/lifestyle/parental-burnout" target="_blank">Read More</a>
+    </div>
+    <div class="news-card" data-category="parenting" onclick="window.open('https://www.fimela.com/parenting/read/5411071/mengenal-digital-parenting-cara-mendidik-anak-di-era-digital-dengan-cerdas', '_blank')">
+       <img src="{% static 'images/berita/parenting2.webp' %}" alt="parenting">
+       <h5>Mengenal Digital Parenting, Cara Mendidik Anak di Era Digital dengan Cerdas</h5>
+       <a href="https://www.fimela.com/parenting/read/5411071/mengenal-digital-parenting-cara-mendidik-anak-di-era-digital-dengan-cerdas" target="_blank">Read More</a>
+    </div>
+    <div class="news-card" data-category="parenting" onclick="window.open('https://eraspace.com/artikel/post/inilah-5-tips-mendidik-anak-di-era-digital-yang-tepat', '_blank')">
+       <img src="{% static 'images/berita/parenting3.jpg' %}" alt="parenting">
+       <h5>Inilah 5 Tips Mendidik Anak di Era Digital yang Tepat</h5>
+       <a href="https://eraspace.com/artikel/post/inilah-5-tips-mendidik-anak-di-era-digital-yang-tepat" target="_blank">Read More</a>
+    </div>
+    <div class="news-card" data-category="parenting" onclick="window.open('https://lifestyle.kompas.com/read/2023/06/09/174500520/mengenal-digital-parenting-pola-asuh-di-era-digital-agar-anak-menjadi?page=all', '_blank')">
+       <img src="{% static 'images/berita/parenting4.jpg' %}" alt="parenting">
+       <h5>Mengenal Digital Parenting, Pola Asuh di Era Digital agar Anak Menjadi Generasi Emas</h5>
+       <a href="https://lifestyle.kompas.com/read/2023/06/09/174500520/mengenal-digital-parenting-pola-asuh-di-era-digital-agar-anak-menjadi?page=all" target="_blank">Read More</a>
+    </div>
+    <div class="news-card" data-category="parenting" onclick="window.open('https://www.akudankau.co.id/artikel/3-5-tahun/parenting-anak', '_blank')">
+       <img src="{% static 'images/berita/parenting5.jpeg' %}" alt="parenting">
+       <h5>10 Tips Parenting Anak dan Hal yang Perlu Dihindari</h5>
+       <a href="https://www.akudankau.co.id/artikel/3-5-tahun/parenting-anak" target="_blank">Read More</a>
+    </div>
+    <div class="news-card" data-category="parenting" onclick="window.open('https://www.liputan6.com/citizen6/read/5216609/5-kesalahan-orangtua-dalam-mendidik-anak-yang-sering-diabaikan', '_blank')">
+       <img src="{% static 'images/berita/parenting6.webp' %}" alt="parenting">
+       <h5>5 Kesalahan Orangtua dalam Mendidik Anak yang Sering Diabaikan</h5>
+       <a href="https://www.liputan6.com/citizen6/read/5216609/5-kesalahan-orangtua-dalam-mendidik-anak-yang-sering-diabaikan" target="_blank">Read More</a>
+    </div>
+    <div class="news-card" data-category="parenting" onclick="window.open('https://kanalpengetahuan.fk.ugm.ac.id/1-000-hari-pertama-kehidupan-dalam-tumbuh-kembang-anak/', '_blank')">
+       <img src="{% static 'images/berita/parenting7.jpeg' %}" alt="parenting">
+       <h5>1.000 Hari Pertama Kehidupan Dalam Tumbuh Kembang Anak</h5>
+       <a href="https://kanalpengetahuan.fk.ugm.ac.id/1-000-hari-pertama-kehidupan-dalam-tumbuh-kembang-anak/" target="_blank">Read More</a>
+    </div>
+    <div class="news-card" data-category="parenting" onclick="window.open('https://www.beautynesia.id/life/ingin-mendidik-anak-tumbuh-mandiri-dan-disiplin-3-tips-parenting-ala-jepang-ini-patut-dicontoh/b-249449', '_blank')">
+       <img src="{% static 'images/berita/parenting8.jpeg' %}" alt="parenting">
+       <h5>Ingin Mendidik Anak Tumbuh Mandiri dan Disiplin? 3 Tips Parenting ala Jepang Ini Patut Dicontoh!</h5>
+       <a href="https://www.beautynesia.id/life/ingin-mendidik-anak-tumbuh-mandiri-dan-disiplin-3-tips-parenting-ala-jepang-ini-patut-dicontoh/b-249449" target="_blank">Read More</a>
+    </div>
+    <div class="news-card" data-category="parenting" onclick="window.open('https://kids.grid.id/read/473212004/bagaimana-menggunakan-sosial-media-yang-sehat-untuk-anak-anak', '_blank')">
+       <img src="{% static 'images/berita/parenting9.jpg' %}" alt="parenting">
+       <h5>Bagaimana Menggunakan Sosial Media yang Sehat untuk Anak-Anak?</h5>
+       <a href="https://kids.grid.id/read/473212004/bagaimana-menggunakan-sosial-media-yang-sehat-untuk-anak-anak" target="_blank">Read More</a>
+    </div>
+
+    <!-- Referensi Ide Masakan -->
+    <div class="news-card" data-category="childFood" onclick="window.open('https://www.popmama.com/kid/1-3-years-old/jemima/resep-masakan-untuk-balita-yang-praktis-dan-penuh-gizi', '_blank')">
+       <img src="{% static 'images/berita/childFood1.jfif' %}" alt="childFood">
+       <h5>15 Resep Masakan untuk Balita yang Praktis dan Penuh Gizi</h5>
+       <a href="https://www.popmama.com/kid/1-3-years-old/jemima/resep-masakan-untuk-balita-yang-praktis-dan-penuh-gizi" target="_blank">Read More</a>
+    </div>
+    <div class="news-card" data-category="childFood" onclick="window.open('https://bebeclub.co.id/artikel/nutrisi/3-tahun-atas/trik-agar-anak-gtm-menyukai-makanan-sehat-bergizi', '_blank')">
+       <img src="{% static 'images/berita/childFood2.jpg' %}" alt="childFood">
+       <h5>4 Rekomendasi Menu Makanan Sehat dan Lezat Untuk Anak GTM</h5>
+       <a href="https://bebeclub.co.id/artikel/nutrisi/3-tahun-atas/trik-agar-anak-gtm-menyukai-makanan-sehat-bergizi" target="_blank">Read More</a>
+    </div>
+    <div class="news-card" data-category="childFood" onclick="window.open('https://nakita.grid.id/read/024027142/menu-makanan-bergizi-untuk-anak-6-12-tahun-demi-mewujudkan-keluarga-sehat-anak-berprestasi?page=all', '_blank')">
+       <img src="{% static 'images/berita/childFood3.jpg' %}" alt="childFood">
+       <h5>Menu Makanan Bergizi untuk Anak 6-12 Tahun Demi Mewujudkan Keluarga Sehat Anak Berprestasi</h5>
+       <a href="https://nakita.grid.id/read/024027142/menu-makanan-bergizi-untuk-anak-6-12-tahun-demi-mewujudkan-keluarga-sehat-anak-berprestasi?page=all" target="_blank">Read More</a>
+    </div>
+    <div class="news-card" data-category="childFood" onclick="window.open('https://kids.grid.id/read/473573863/sederet-makanan-yang-baik-untuk-kecerdasan-dan-tumbuh-kembang-anak', '_blank')">
+       <img src="{% static 'images/berita/childFood4.jpg' %}" alt="childFood">
+       <h5>Sederet Makanan yang Baik untuk Kecerdasan dan Tumbuh Kembang Anak</h5>
+       <a href="https://kids.grid.id/read/473573863/sederet-makanan-yang-baik-untuk-kecerdasan-dan-tumbuh-kembang-anak" target="_blank">Read More</a>
+    </div>
+    <div class="news-card" data-category="childFood" onclick="window.open('https://www.briliofood.net/resep/15-resep-menu-makan-siang-untuk-anak-enak-dan-sederhana-201116u.html', '_blank')">
+       <img src="{% static 'images/berita/childFood5.jfif' %}" alt="childFood">
+       <h5>15 Resep menu makan siang untuk anak, enak dan sederhana</h5>
+       <a href="https://www.briliofood.net/resep/15-resep-menu-makan-siang-untuk-anak-enak-dan-sederhana-201116u.html" target="_blank">Read More</a>
+    </div>
+    <div class="news-card" data-category="childFood" onclick="window.open('https://hellosehat.com/parenting/anak-6-sampai-9-tahun/gizi-anak/makanan-sehat-untuk-anak/', '_blank')">
+       <img src="{% static 'images/berita/childFood6.webp' %}" alt="childFood">
+       <h5>16 Jenis Makanan Sehat dan Bernutrisi Tinggi untuk Anak</h5>
+       <a href="https://hellosehat.com/parenting/anak-6-sampai-9-tahun/gizi-anak/makanan-sehat-untuk-anak/" target="_blank">Read More</a>
+    </div>
+
+    <!-- Pengaruh Kesehatan Mental -->
+    <div class="news-card" data-category="mentalHealth" onclick="window.open('https://www.halodoc.com/artikel/kesehatan-mental-orang-tua-berpengaruh-pada-anak?srsltid=AfmBOopwXsiN4ASoxHW8tomrAcYZAH7RZ3KW8NmiEgoHLP6bZyt0AEfO', '_blank')">
+       <img src="{% static 'images/berita/mentalHealth1.jfif' %}" alt="mentalHealth">
+       <h5>Kesehatan Mental Orang Tua Berpengaruh pada Anak</h5>
+       <a href="https://www.halodoc.com/artikel/kesehatan-mental-orang-tua-berpengaruh-pada-anak?srsltid=AfmBOopwXsiN4ASoxHW8tomrAcYZAH7RZ3KW8NmiEgoHLP6bZyt0AEfO" target="_blank">Read More</a>
+    </div>
+    <div class="news-card" data-category="mentalHealth" onclick="window.open('https://parentalk.id/pentingnya-kesehatan-mental-orang-tua-dalam-pengasuhan-anak/', '_blank')">
+       <img src="{% static 'images/berita/mentalHealth2.jpg' %}" alt="mentalHealth">
+       <h5>Pentingnya Kesehatan Mental Orang Tua dalam Pengasuhan Anak</h5>
+       <a href="https://parentalk.id/pentingnya-kesehatan-mental-orang-tua-dalam-pengasuhan-anak/" target="_blank">Read More</a>
+    </div>
+    <div class="news-card" data-category="mentalHealth" onclick="window.open('https://www.haibunda.com/parenting/20231230215842-62-325122/5-alasan-kesehatan-mental-orang-tua-sangat-berpengaruh-pada-perkembangan-anak', '_blank')">
+       <img src="{% static 'images/berita/mentalHealth3.jpeg' %}" alt="mentalHealth">
+       <h5>5 Alasan Kesehatan Mental Orang Tua Sangat Berpengaruh pada Perkembangan Anak</h5>
+       <a href="https://www.haibunda.com/parenting/20231230215842-62-325122/5-alasan-kesehatan-mental-orang-tua-sangat-berpengaruh-pada-perkembangan-anak" target="_blank">Read More</a>
+    </div>
+    <div class="news-card" data-category="mentalHealth" onclick="window.open('https://www.halodoc.com/artikel/inilah-hubungan-kesehatan-mental-orangtua-terhadap-anak', '_blank')">
+       <img src="{% static 'images/berita/mentalHealth4.jpg' %}" alt="mentalHealth">
+       <h5>Hubungan Kesehatan Mental Orangtua Terhadap Anak</h5>
+       <a href="https://www.halodoc.com/artikel/inilah-hubungan-kesehatan-mental-orangtua-terhadap-anak" target="_blank">Read More</a>
+    </div>
+    <div class="news-card" data-category="mentalHealth" onclick="window.open('https://www.alodokter.com/catat-ini-perilaku-baik-orang-tua-yang-mungkin-akan-ditiru-anak', '_blank')">
+       <img src="{% static 'images/berita/mentalHealth5.jpg' %}" alt="mentalHealth">
+       <h5>Ini Perilaku Baik Orang Tua yang Mungkin Akan Ditiru Anak</h5>
+       <a href="https://www.alodokter.com/catat-ini-perilaku-baik-orang-tua-yang-mungkin-akan-ditiru-anak" target="_blank">Read More</a>
+    </div>
+    <div class="news-card" data-category="mentalHealth" onclick="window.open('https://yankes.kemkes.go.id/view_artikel/1509/peran-keluarga-dalam-menjaga-kesehatan-mental-anak', '_blank')">
+       <img src="{% static 'images/berita/mentalHealth6.jpg' %}" alt="mentalHealth">
+       <h5>Peran Keluarga dalam Menjaga Kesehatan Mental Anak</h5>
+       <a href="https://yankes.kemkes.go.id/view_artikel/1509/peran-keluarga-dalam-menjaga-kesehatan-mental-anak" target="_blank">Read More</a>
+    </div>
+ </section>
+
+<!-- Footer -->
+ <footer class="footer">
+    <div class="footer-container container-fluid">
+       <div class="footer-header">
+          <img src="{% static 'images/index/logoSmartbeez.png' %}" alt="Company Logo" class="footer-logo">
+          <h6>Bermain dan belajar sambil berpetualang <br>bersama SmartBeez</h6>
+          <div class="footer-sosmed">
+             <div class="social-icons">
+                <a href="#" style="margin-left: 50px;"><i data-feather="mail"></i></a>
+                <a href="#"><i data-feather="twitter"></i></a>
+                <a href="#"><i data-feather="facebook"></i></a>
+                <a href="#"><i data-feather="instagram"></i></a>
+                <a href="#"><i data-feather="youtube"></i></a>
+                <a href="#"><i data-feather="linkedin"></i></a>
+             </div>
+          </div>
+       </div>
+       <div class="footer-column" style="margin-left: 200px;">
+          <h4>SmartBeez</h4>
+          <ul>
+             <li><a href="{% url 'tentangKami' %}">Tentang Kami</a></li>
+             <li><a href="{% url 'index' %}#features">Keunggulan</a></li>
+             <li><a href="{% url 'index' %}#testimonial">Testimoni</a></li>
+          </ul>
+       </div>
+       <div class="footer-column">
+          <h4>Produk</h4>
+          <ul>
+             <li><a href="login.html">Video Learning</a></li>
+             <li><a href="login.html">Games</a></li>
+             <li><a href="{% url 'berita' %}">Berita</a></li>
+          </ul>
+       </div>
+       <div class="footer-column">
+          <h4>Lainnya</h4>
+          <ul>
+             <li><a href="{% url 'faq' %}#faq">Faqs</a></li>
+             <li><a href="{% url 'faq' %}#kontak">Kontak</a></li>
+          </ul>
+       </div>
+    </div>
+    <div class="footer-bottom">
+       <div class="credit-right" style="text-align: left; justify-content: left; margin-left: 30px;">
+          <p class="text-decoration-none p-3">Created by  <span class="text-warning"> <strong>kelompok 2</strong></span> | &copy; 2024.</p>
+       </div>
+       <div class="credit-center" style="text-align: center; justify-content: center;">
+          <p class="text-decoration-none p-3" >Terms of Service</p>
+       </div>
+       <div class="credit-left" style="text-align: right; justify-content: right; margin-right: 30px;">
+          <p class="text-decoration-none p-3" style="display: flex; align-items: center; margin: 0;">Back to Top<a href="#" class="panah" style="margin-left: 10px;"><i data-feather="arrow-up"></i></a></p>
+       </div>
+    </div>
+ </footer>
+
+{% endblock %}

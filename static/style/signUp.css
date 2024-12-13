@@ -1,0 +1,76 @@
+/* @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500&display=swap'); */
+
+:root {
+    --firstpurple: #704FE3;
+    --secondpurple: #DEC8FE;
+    --firstyellow:#FFD25D;
+    --secondyellow: #FFF1CE;
+}
+
+body{
+    font-family: 'Poppins', sans-serif;
+    /* background: var(--secondyellow); */
+}
+
+/*------------ Login container ------------*/
+
+.box-area{
+    width: 930px;
+}
+
+/*------------ Right box ------------*/
+
+.right-box{
+    padding: 40px 30px 40px 40px;
+}
+
+/*------------ Custom Placeholder ------------*/
+
+::placeholder{
+    font-size: 16px;
+}
+
+.rounded-4{
+    border-radius: 20px;
+}
+.rounded-5{
+    border-radius: 30px;
+}
+
+.color-none:hover{
+    color: #704FE3;
+}
+.color-none:focus {
+    color: inherit; /* Mengembalikan warna teks dan ikon default */
+    background-color: inherit; /* Mengembalikan warna latar default */
+    /* border: inherit; */
+}
+
+
+
+.btn-login {
+    background-color: var(--firstpurple);
+}
+
+.btn-login:hover {
+    background-color: var(--secondpurple);
+}
+
+
+/*------------ For small screens------------*/
+
+@media only screen and (max-width: 768px){
+
+     .box-area{
+        margin: 0 10px;
+
+     }
+     .left-box{
+        height: 100px;
+        overflow: hidden;
+     }
+     .right-box{
+        padding: 20px;
+     }
+
+}

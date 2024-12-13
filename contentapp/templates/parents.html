@@ -1,0 +1,289 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Parents{% endblock %}
+{% block head %}
+
+<link rel="stylesheet" href="{% static 'style/parents.css' %}">
+<!-- <script src="{% static 'js/parents.js' %}"></script> -->
+<script src="{% static 'js/popUp.js' %}"></script>
+{% endblock %}
+
+{% block content %}
+ <!-- Navbar -->
+ <nav class="navbar navbar-expand-lg navbar-light custom-navbar">
+    <div class="container">
+      <!-- Logo -->
+      <a class="navbar-brand d-flex align-items-center" href="#">
+        <img src="{% static 'images/index/logoSmartbeez.png' %}" alt="SmartBeez Logo" class="logo">
+      </a>
+  
+      <!-- Navbar Items -->
+      <div class="d-flex">
+        <a class="nav-link active" href="{% url 'beranda' %}">Home</a>
+      </div>
+    </div>
+  </nav>
+
+<!-- Kategori Video -->
+  <!-- <section class="video-category">
+    <h1 style="color: #704FE3;">Pilih Kategori<span style="color: #FFD25D;"> Video</span>.</h1>
+    <button onclick="filterVideos('all')">All</button>
+    <button onclick="filterVideos('Parenting Dasar')">Parenting Dasar</button>
+    <button onclick="filterVideos('bekalSekolah')">Ide Bekal Sekolah</button>
+    <button onclick="filterVideos('ruangBaca')">Ruang Baca</button>
+    <button onclick="filterVideos('postTest')">Post Test</button>
+  </section> -->
+  <section class="video-category">
+    <h1 style="color: #704FE3;">Pilih Kategori<span style="color: #FFD25D;"> Video</span>.</h1>
+    <button class="btn btn-outline-primary" onclick="filterVideos('all')">All</button>
+    <button class="btn btn-outline-primary" onclick="filterVideos('Parenting Dasar')">Parenting Dasar</button>
+    <button class="btn btn-outline-primary" onclick="filterVideos('Ide Bekal Sekolah')">Ide Bekal Sekolah</button>
+    <button class="btn btn-outline-primary" onclick="filterVideos('Ruang Baca')">Ruang Baca</button>
+    <button class="btn btn-outline-primary" onclick="filterVideos('Post Test')">Post Test</button>
+    <!-- <button onclick="filterVideos('postTest')">Post Test</button> -->
+    <!-- <button class="btn btn-outline-primary" onclick="filterVideos('Science')">Science</button> -->
+  </section>
+
+  <section class="container video-section" id="videoContainer">
+    {% for video in videos %}
+      <div class="video-card" data-category="{{ video.category }}">
+        <!-- Gambar universal untuk semua kategori -->
+        <img src="{{ video.image.url }}" alt="{{ video.title }}">
+        <h5>{{ video.title }}</h5>
+        {% if video.category == "Post Test" %}
+          <!-- URL khusus untuk kategori Post Test -->
+          <a href="{{ video.youtube_id }}" class="btn btn-primary">Kerjakan Post Test</a>
+        {% else %}
+          <!-- URL default untuk kategori lainnya -->
+          <a href="{% url 'watch_video' youtube_id=video.youtube_id %}" class="btn btn-primary">Tonton Video</a>
+        {% endif %}
+      </div>
+    {% endfor %}
+  </section>
+  
+  
+
+  <!-- <div class="container video-section" id="videoContainer">
+    <div class="video-card" data-category="postTest" onclick="showPopup('Parenting Dasar')"></div>
+    <img src="{% static 'images/post/postTest_1.png' %}" alt="Post Test 1">
+    <h5>Parenting Dasar</h5>
+    <button class="category">Lihat Test</button>
+  </div>
+  </div> -->
+
+<!-- Video Section -->
+  <!-- <section class="container video-section" id="videoContainer">
+    <div class="video-card" data-category="parentingDasar" >
+      <img src="{% static 'images/parents/parentingDasar.jpg' %}" alt="Parenting Dasar 1">
+      <h5>Basics of Parenting Part 1</h5>
+      <button class="category" onclick="window.open('https://youtu.be/KXApEYqunMM?si=wBb0E5MCKEsq64PO', '_blank')">Lihat Video</button>
+    </div>
+    <div class="video-card" data-category="parentingDasar" onclick="window.open('https://youtu.be/SC0OdvDlfdM?si=vorLPo5R5H5hnFxh', '_blank')">
+      <img src="{% static 'images/parents/parentingDasar.jpg' %}" alt="Parenting Dasar 2">
+      <h5>Basics of Parenting Part 2</h5>
+      <button class="category">Lihat Video</button>
+    </div>
+    <div class="video-card" data-category="parentingDasar" onclick="window.open('https://youtu.be/9dyTQ1nTDBI?si=6QcPriiHJ9JlMUkV', '_blank')">
+      <img src="{% static 'images/parents/parentingDasar.jpg' %}" alt="Parenting Dasar 3">
+      <h5>Basics of Parenting Part 3</h5>
+      <button class="category">Lihat Video</button>
+    </div>
+    <div class="video-card" data-category="parentingDasar" onclick="window.open('https://youtu.be/9dyTQ1nTDBI?si=6QcPriiHJ9JlMUkV', '_blank')">
+      <img src="{% static 'images/parents/parentingDasar.jpg' %}" alt="Parenting Dasar 4">
+      <h5>Basics of Parenting Part 4</h5>
+      <button class="category">Lihat Video</button>
+    </div>
+    <div class="video-card" data-category="parentingDasar" onclick="window.open(' https://youtu.be/2RUkP8k5PBs?si=lDkjy6t7871f2LRK', '_blank')">
+      <img src="{% static 'images/parents/parentingDasar.jpg' %}" alt="Parenting Dasar 5">
+      <h5>Basics of Parenting Part 5</h5>
+      <button class="category">Lihat Video</button>
+    </div>
+    <div class="video-card" data-category="parentingDasar" onclick="window.open(' https://youtu.be/yHKN19Q5dgc?si=8DFkSVgQYoBIqf9P', '_blank')">
+      <img src="{% static 'images/parents/parentingDasar.jpg' %}" alt="Parenting Dasar 6">
+      <h5>Basics of Parenting Part 6</h5>
+      <button class="category">Lihat Video</button>
+    </div>
+    <div class="video-card" data-category="bekalSekolah" onclick="window.open('https://youtu.be/Gtq_w-zIAHo?si=By3V1ZO1kZGB6iBM', '_blank')">
+      <img src="{% static 'images/parents/bekalSekolah.jpg' %}" alt="Bekal Sekolah 1">
+      <h5>Ide Bekal Sekolah Part 1</h5>
+      <button class="category">Lihat Video</button>
+    </div>
+    <div class="video-card" data-category="bekalSekolah" onclick="window.open('https://youtu.be/Vhh_3GbQ5t0?si=lAH7av71nD7ANdMF', '_blank')">
+      <img src="{% static 'images/parents/bekalSekolah.jpg' %}" alt="Bekal Sekolah 2">
+      <h5>Ide Bekal Sekolah Part 2</h5>
+      <button class="category">Lihat Video</button>
+    </div>
+    <div class="video-card" data-category="bekalSekolah" onclick="window.open('https://youtu.be/NQdDMH4avsg?si=t5j4nZXyrf4ghO8q', '_blank')">
+      <img src="{% static 'images/parents/bekalSekolah.jpg' %}" alt="Bekal Sekolah 3">
+      <h5>Ide Bekal Sekolah Part 3</h5>
+      <button class="category">Lihat Video</button>
+    </div>
+    <div class="video-card" data-category="ruangBaca" onclick="window.open('https://youtu.be/ckMIb1J7-Jk?si=ToqUO2d1dfVf42hH', '_blank')">
+      <img src="{% static 'images/parents/ruangBaca.jpeg' %}" alt="Ruang Baca 1">
+      <h5>Belajar Parenting dan Relationship ala Michelle Obama</h5>
+      <button class="category">Lihat Video</button>
+    </div>
+    <div class="video-card" data-category="ruangBaca" onclick="window.open('https://youtu.be/g6Dl9sc6i7w?si=h6EJVOJgVVk1k153', '_blank')">
+      <img src="{% static 'images/parents/ruangBaca.jpeg' %}" alt="Ruang Baca 2">
+      <h5>Empowered Me (Mother Empowers) by Puty Puar</h5>
+      <button class="category">Lihat Video</button>
+    </div>
+    <div class="video-card" data-category="ruangBaca" onclick="window.open('https://youtu.be/c4lc5Qq-F6Y?si=XvlvEmkMFQZhFyvx', '_blank')">
+      <img src="{% static 'images/parents/ruangBaca.jpeg' %}" alt="Ruang Baca 3">
+      <h5>The Book You Wish Your Parents Had Read</h5>
+      <button class="category">Lihat Video</button>
+    </div>
+    <div class="video-card" data-category="ruangBaca" onclick="window.open('https://youtu.be/tCiNAcsx7E0?si=wfNJl86ALhUOqPb5', '_blank')">
+      <img src="{% static 'images/parents/ruangBaca.jpeg' %}" alt="Ruang Baca 4">
+      <h5>The 5 Love Languages of Children by Gary Chapman</h5>
+      <button class="category">Lihat Video</button>
+    </div>
+    <div class="video-card" data-category="ruangBaca" onclick="window.open('https://youtu.be/tCiNAcsx7E0?si=wfNJl86ALhUOqPb5', '_blank')">
+      <img src="{% static 'images/parents/ruangBaca.jpeg' %}" alt="Ruang Baca 4">
+      <h5>The 5 Love Languages of Children by Gary Chapman</h5>
+      <button class="category">Lihat Video</button>
+    </div>
+    <div class="video-card" data-category="ruangBaca" onclick="window.open('https://youtu.be/tCiNAcsx7E0?si=wfNJl86ALhUOqPb5', '_blank')">
+      <img src="{% static 'images/parents/ruangBaca.jpeg' %}" alt="Ruang Baca 4">
+      <h5>The 5 Love Languages of Children by Gary Chapman</h5>
+      <button class="category">Lihat Video</button>
+    </div> -->
+    
+    <!-- Post Test -->
+    <!-- <div class="video-card" data-category="postTest" onclick="showPopup('Parenting Dasar')">
+      <img src="{% static 'images/post/postTest_1.png' %}" alt="Post Test 1">
+      <h5>Parenting Dasar</h5>
+      <button class="category">Lihat Test</button>
+    </div>
+
+    <div class="video-card" data-category="postTest" onclick="showPopup('Ide Bekal Sekolah')">
+      <img src="{% static 'images/post/postTest_2.png' %}" alt="Post Test 2">
+      <h5>Ide Bekal Sekolah</h5>
+      <button class="category">Lihat Test</button>
+    </div>
+
+    <div class="video-card" data-category="postTest" onclick="showPopup('Ruang Baca')">
+      <img src="{% static 'images/post/PT_3.png' %}" alt="Post Test 3">
+      <h5>Ruang Baca</h5>
+      <button class="category">Lihat Test</button>
+    </div> -->
+
+    <!-- PopUp -->
+    <div class="modal fade" id="welcomeModal" tabindex="-1" aria-labelledby="welcomeModalLabel" aria-hidden="true">
+      <div class="modal-dialog modal-dialog-centered">
+          <div class="modal-content" style="border-radius: 15px; background: linear-gradient(135deg, #a19e97, #FFF1CE);">
+              <div class="modal-header text-center" style="border-bottom: none;">
+                  <h5 class="modal-title w-100" id="welcomeModalLabel" style="font-family: 'Poppins', sans-serif; color: #704FE3;">
+                  Halo, Smart Parents!
+                  </h5>
+              </div>
+              <div class="modal-body text-center">
+                  <img src="{% static 'images/parents/parents.png' %}"  alt="Balloons" style="width: 100px; animation: float 3s infinite;">
+                  <p style="font-size: 1.2rem; color: #4e342e; font-family: 'Poppins', sans-serif;">
+                      Sudahkah kalian siap untuk mengetahui seberapa jauh pengetahuan kalian? 😕
+                  </p>
+                  <p style="color: #6a1b9a;">Yuk ketahui seberapa jauh pengetahuan kalian, Smart Parents! 🚀🎉</p>
+                  <button type="button" class="btn btn-lg" style="border-radius: 25px; background-color: #704FE3; color: #FFFFFF; font-weight: bold;" id="exploreNowButton" onclick="window.location.href='soal.html'">
+                      Kerjakan Sekarang!
+                  </button>
+              </div>
+          </div>
+      </div>
+  </div>
+  </section>
+
+<!-- Footer -->
+<footer class="footer">
+  <div class="footer-container container-fluid">
+    <div class="footer-header">
+      <img src="{% static 'images/index/logoSmartbeez.png' %}" alt="Company Logo" class="footer-logo">
+      <h6>Bermain dan belajar sambil berpetualang <br>bersama SmartBeez</h6>
+      <div class="footer-sosmed">
+        <div class="social-icons">
+          <a href="#" style="margin-left: 50px;"><i data-feather="mail"></i></a>
+          <a href="#"><i data-feather="twitter"></i></a>
+          <a href="#"><i data-feather="facebook"></i></a>
+          <a href="#"><i data-feather="instagram"></i></a>
+          <a href="#"><i data-feather="youtube"></i></a>
+          <a href="#"><i data-feather="linkedin"></i></a>
+        </div>
+      </div>
+    </div>
+    <div class="footer-column" style="margin-left: 200px;">
+      <h4>SmartBeez</h4>
+      <ul>
+        <li><a href="{% url 'tentangKami' %}">Tentang Kami</a></li>
+        <li><a href="{% url 'index' %}#features">Keunggulan</a></li>
+        <li><a href="{% url 'index'}#testimonial">Testimoni</a></li>
+      </ul>
+    </div>
+    <div class="footer-column">
+      <h4>Produk</h4>
+      <ul>
+        <li><a href="{% url 'login' %}">Video Learning</a></li>
+        <li><a href="{% url 'login' %}">Games</a></li>
+        <li><a href="{% url 'berita' %}">Berita</a></li>
+      </ul>
+    </div>
+    <div class="footer-column">
+      <h4>Lainnya</h4>
+      <ul>
+        <li><a href="{% url 'faq' %}#faq">Faqs</a></li>
+        <li><a href="{% url 'faq' %}#kontak">Kontak</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <div class="credit-right" style="text-align: left; justify-content: left; margin-left: 30px;">
+      <p class="text-decoration-none p-3">Created by  <span class="text-warning"> <strong>kelompok 2</strong></span> | &copy; 2024.</p>
+    </div>
+    <div class="credit-center" style="text-align: center; justify-content: center;">
+      <p class="text-decoration-none p-3" >Terms of Service</p>
+    </div>
+    <div class="credit-left" style="text-align: right; justify-content: right; margin-right: 30px;">
+      <p class="text-decoration-none p-3" style="display: flex; align-items: center; margin: 0;">Back to Top<a href="#" class="panah" style="margin-left: 10px;"><i data-feather="arrow-up"></i></a></p>
+    </div>
+  </div>
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+<script>feather.replace();</script>
+
+<script>
+  function filterVideos(category) {
+    const videoCards = document.querySelectorAll('.video-card'); // Ambil semua video
+    const categories = ['Parenting Dasar', 'Ide Bekal Sekolah', 'Ruang Baca']; // Daftar kategori tombol
+  
+    videoCards.forEach(card => {
+      const videoCategory = card.getAttribute('data-category'); // Kategori video
+  
+      if (category === 'all') {
+        // Hanya tampilkan video dari kategori yang didefinisikan
+        if (categories.includes(videoCategory)) {
+          card.style.display = 'block'; // Tampilkan video
+        } else {
+          card.style.display = 'none'; // Sembunyikan video
+        }
+      } else if (videoCategory === category) {
+        card.style.display = 'block'; // Tampilkan video sesuai kategori
+      } else {
+        card.style.display = 'none'; // Sembunyikan video
+      }
+    });
+  }
+
+  window.onload = function () {
+    filterVideos('Parenting Dasar'); // Ganti 'none' dengan kategori default jika diperlukan
+  };
+</script>
+  </script>
+<script src="{% static 'js/parents.js' %}"></script>
+
+{% endblock %}
+
+{% block javascript %}
+<!-- Tempat untuk memasukkan stylesheet atau JS yang spesifik halaman -->
+<script src="{% static 'js/navbar.js' %}"></script>
+<script src="{% static 'js/popUp.js' %}"></script>
+{% endblock %}

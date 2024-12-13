@@ -1,0 +1,644 @@
+:root {
+    --firstpurple: #704FE3;
+    --secondpurple: #DEC8FE;
+    --firstyellow:#FFD25D;
+    --secondyellow: #FFF1CE;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    outline: none;
+    border: none;
+    text-decoration: none;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    background-color: var(--bg);
+    color: #ffffff;
+    width: 100%;
+}
+
+.navbar {
+    background-color: #ffffff;
+    height: 70px;
+}
+
+.navbar img {
+    height: 40px;
+}
+
+.navbar .btn {
+    font-weight: bold;
+    color: var(--firstyellow);
+}
+
+.navbar .btn:hover {
+    color: var(--firstpurple);
+}
+
+.navbar .nav-link {
+    font-weight: 500;
+    border: 1px solid transparent;
+    border-radius: 20px;
+    padding: 5px 10px;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+.navbar .nav-link:hover {
+    background-color: #EDE2FF;
+    color: var(--firstpurple);
+    border: 1px solid var(--firstpurple);
+    text-decoration: none;
+}
+
+.navbar .nav-link.active {
+    color: var(--firstpurple);
+}
+
+#home {
+    margin-top: 60px;
+    width: 100%;
+}
+
+#home .content-home {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    text-align: center;
+    width: 100%;
+}
+
+#home h1 {
+    color: black;
+    font-size: 48px;
+    font-weight: 600;
+    margin-top: 10px;
+}
+
+#home h6 {
+    margin-top: 30px;
+    color: black;
+}
+
+#home .btn {
+    margin: 40px 0 0 0;
+    padding: 10px 20px;
+    width: auto;
+    display: inline-block;
+}
+
+#home .btn:hover {
+    background-color: var(--firstpurple);
+    color: #ffffff;
+}
+
+#home .image-column {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+    gap: 20px;
+}
+
+#home .top-image {
+    align-self: flex-start;
+    margin-bottom: 70px;
+}
+
+#home .center-image {
+    align-self: center;
+    width: 60px;
+    margin: 40px 0;
+}
+
+#home .bottom-image {
+    align-self: flex-end;
+    margin-top: 140px;
+    margin-bottom: 40px;
+}
+
+#home .side-image {
+    max-width: 100px;
+    height: auto;
+    border-radius: 50%;
+}
+
+.program {
+    background-color: var(--firstpurple);
+}
+
+.program h1 {
+    margin-top: 0px;
+    font-size: 40px;
+    font-weight: 500;
+    text-align: center;
+}
+
+.program .container-program-kiri {
+    display: flex;
+    align-items: center;
+    gap: 100px;
+    margin: 70px 50px;
+}
+
+.program .container-program-kanan {
+    display: flex;
+    align-items: center;
+    margin: 100px 50px 0px 50px;
+}
+
+.program .container-program-kiri .img-program-kiri {
+    width: 20%;
+    margin: 0px 0px 0px 150px;
+}
+.program .container-program-kanan .img-program-kanan {
+    width: 20%;
+    margin: 0px 150px 0px 0px;
+}
+
+.program .container-program-kiri, .container-program-kanan h5 {
+    color: #ffffff;
+}
+
+.program p, ul {
+    font-size: 16px;
+}
+
+.program .text-content-kiri {
+    display: flex;
+    flex-direction: column;
+    margin-right: 100px;
+}
+
+.program .text-content-kanan {
+    display: flex;
+    flex-direction: column;
+    margin-left: 100px;
+}
+
+.program .btn {
+    width: auto;
+    max-width: 200px;
+    text-align: center;
+    white-space: nowrap;
+}
+
+.program .btn:hover {
+    background-color: var(--secondyellow);
+    color: var(--firstpurple)!important;
+}
+
+.features {
+    background-color: var(--firstpurple);
+    margin-top: 0px;
+}
+
+.features h1 {
+    margin-top: 0px;
+    font-size: 40px;
+    font-weight: 500;
+    text-align: center;
+}
+
+.features .container-features {
+    width: 90%;
+    margin: 0 auto;
+}
+
+.features .container-features .features-card {
+    margin-top: 30px;
+    display: flex;
+    overflow-x: auto;
+    scroll-behavior: smooth;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+}
+
+.features .container-learning .class-card ::-webkit-scrollbar {
+    display: none;
+}
+
+.features .container-features .card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: #ffffff;
+    padding: 20px 5px;
+    border-radius: 15px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    min-width: 300px;
+    margin: 10px;
+}
+
+.features .container-features .card h5 {
+    margin-bottom: 10px;
+    color: #333333;
+    width: 80%;
+    background-color: var(--secondyellow);
+    padding: 8px;
+    border-radius: 10px;
+}
+
+.features .container-features .card p {
+    color: #666666;
+    margin-bottom: 5px;
+    margin-top: 5px;
+    font-size: 14px;
+    text-align: left;
+    width: 80%;
+    text-align: center;
+}
+
+.testimonial {
+    background-color: var(--firstpurple);
+}
+
+.testimonial h1 {
+    margin-top: 0px;
+    font-size: 40px;
+    font-weight: 500;
+    text-align: center;
+}
+
+.testimonial .container-testimonial {
+    width: 90%;
+    margin: 0 auto;
+}
+
+.testimonial .container-testimonial .testimonial-card {
+    margin-top: 30px;
+    display: flex;
+    overflow-x: auto;
+    scroll-behavior: smooth;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+}
+
+.testimonial .container-testimonial .card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: #ffffff;
+    padding: 20px 5px;
+    border-radius: 15px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    min-width: 250px;
+    margin: 10px;
+}
+
+.testimonial .container-testimonial .card img {
+    width: 100px;
+    border-radius: 50%;
+    border: 3px solid var(--firstpurple);
+}
+
+.testimonial .container-testimonial .card h5 {
+    color: #666666;
+    margin-bottom: 5px;
+    margin-top: 20px;
+    text-align: left;
+    width: 80%;
+    text-align: center;
+}
+
+.testimonial .container-testimonial .card .stars {
+    margin-bottom: 20px;
+    font-size: 20px;
+}
+
+.testimonial .container-testimonial .card .stars .full {
+    color: #ffcc00;
+}
+
+.testimonial .container-testimonial .card .stars .empty {
+    color: #cccccc;
+}
+
+.testimonial .container-testimonial .card .btn {
+    background-color: var(--secondpurple);
+    color: var(--firstpurple);
+}
+
+.testimonial .container-testimonial .card .btn:hover {
+    background-color: var(--secondyellow);
+    color: #333333;
+}
+
+.teacher {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+}
+
+.teacher h1 {
+    text-align: center;
+    margin-bottom: 40px;
+    margin-top: 70px;
+    font-size: 40px;
+    font-weight: 500;
+}
+
+.teacher .card-container {
+    display: flex;
+    gap: 20px;
+    align-items: center;
+    justify-content: center;
+}
+
+.teacher .card {
+    width: 150px;
+    height: 300px;
+    border-radius: 20px;
+    overflow: hidden;
+    position: relative;
+    transition: all 0.3s ease;
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    padding: 0px;
+}
+
+.teacher .card .name {
+    font-weight: bold;
+    color: #333;
+    padding: 5px 10px;
+    border-radius: 10px;
+    margin-bottom: 0px;
+    text-align: center;
+}
+
+.teacher .card .content {
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    border-radius: 20px;
+    transition: all 0.3s ease;
+    display: block;
+    background-color: none;
+}
+
+.teacher .card.expanded {
+    display: grid;
+    grid-template-areas:
+        "name image"
+        "description image";
+    grid-template-columns: 1fr 200px;
+    width: 350px;
+    height: 300px;
+    padding: 20px;
+    background-color: #704FE3;
+    border-radius: 20px;
+}
+
+.teacher .card.expanded .name {
+    grid-area: name;
+    text-align: left;
+    font-size: 25px;
+    margin: 0;
+    color: #333;
+}
+
+.teacher .card.expanded .content {
+    grid-area: image;
+    width: 100%;
+    height: 100%;
+    border-radius: 0 20px 20px 0;
+    background-position: center;
+    background-size: cover;
+    margin: 0px;
+}
+
+.promo-container {
+    margin-top: 70px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    margin-bottom: 70px;
+}
+
+.promo-container h1 {
+    margin-top: 0px;
+    font-size: 40px;
+    font-weight: 500;
+    text-align: center;
+}
+
+.promo-container .promo-card {
+    min-width: 320px;
+    border-radius: 20px;
+    text-align: left;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    margin-bottom: 30px;
+    margin-top: 50px;
+    transition: transform 0.3s, box-shadow 0.3s;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    border: 1px solid var(--firstpurple);
+}
+
+.promo-container .promo-card .promo-harga {
+    background-color: var(--firstpurple);
+    margin: 0;
+    padding: 30px 0px 20px 30px;
+    border-radius: 10px 10px 0 0;
+}
+
+.promo-container .promo-card .promo-harga p {
+    font-size: 12px;
+    margin: 0;
+    line-height: 1.2;
+}
+
+.promo-container .promo-card .promo-hasil {
+    background-color: #fffff6;
+    color: #000000;
+    margin: 0;
+    border-radius: 0 0 10px 10px;
+}
+
+.promo-container .promo-card .promo-hasil .promo-list {
+    margin: 20px 0px 20px 20px;
+}
+
+.promo-container .promo-card .promo-hasil li {
+    font-size: 15px;
+    line-height: 1.7;
+}
+
+.promo-container .promo-card .promo-hasil .btn {
+    background-color: var(--secondpurple);
+    border: 1px solid var(--firstpurple);
+    color: var(--firstpurple);
+    border-radius: 10px;
+    width: 200px;
+    display: block;
+    margin: 30px auto 20px auto;
+    text-align: center;
+}
+
+.promo-container .promo-card .promo-hasil .btn-tengah {
+    background-color: var(--secondyellow);
+    border: 1px solid #464646;
+    color: #464646;
+    border-radius: 10px;
+    width: 200px;
+    display: block;
+    margin: 30px auto 20px auto;
+    text-align: center;
+    text-decoration: none;
+}
+
+.promo-container .promo-card .promo-hasil .btn:hover {
+    background-color: var(--firstpurple);
+    color: var(--secondpurple);
+}
+
+.promo-container .promo-card .promo-hasil .btn-tengah:hover {
+    background-color: #464646;
+    color: var(--secondyellow);
+}
+
+.promo-container .promo-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+}
+
+.footer {
+    background-color: #464646;
+    color: white;
+    padding: 0px 10px;
+    width: 100%;
+}
+
+.footer .footer-container {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+
+.footer .footer-column {
+    flex: 1;
+    margin-top: 115px;
+    margin-bottom: 50px;
+    min-width: 100px;
+}
+
+.footer .footer-logo {
+    max-width: 220px;
+    margin: 40px 0px 20px 44px;
+}
+
+.footer .footer-header h6 {
+    margin-left: 50px;
+}
+
+.footer .social-icons a {
+    display: inline-block;
+    width: 45px;
+    height: 45px;
+    line-height: 40px;
+    text-align: center;
+    background-color: var(--firstyellow);
+    border-radius: 50%;
+    color: var(--firstpurple);
+    margin: 30px 5px;
+    font-size: 18px;
+    transition: transform 0.3s;
+}
+
+.footer .social-icons a:hover {
+    background-color: var(--firstpurple);
+    color: #ffffff;
+}
+
+.footer .footer-column h5 {
+    margin-bottom: 15px;
+    color: white;
+}
+
+.footer .footer-column ul {
+    list-style: none;
+    padding: 0;
+    font-size: 14px;
+}
+
+.footer .footer-column ul li {
+    margin-bottom: 10px;
+    font-size: 14px;
+}
+
+.footer .footer-column ul li a {
+    color: white;
+    text-decoration: none;
+    font-size: 14px;
+}
+
+.footer .footer-column ul li a:hover {
+    color: var(--firstyellow);
+}
+
+.footer .footer-bottom {
+    font-size: 14px;
+    color: #bbbbbb;
+    border-top: 1px solid var(--secondyellow);
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    height: 100px;
+    padding: 0 20px;
+}
+
+.footer .credit-left, .credit-center, .credit-right {
+    flex: 1;
+}
+
+.footer .credit-left {
+    text-align: left;
+    display: flex;
+    align-items: center;
+}
+
+.footer .credit-left .panah {
+    display: flex;
+    color: var(--firstyellow);
+    border: 2px solid var(--firstyellow);
+    padding: 2px;
+    border-radius: 50%;
+    width: 20px;
+    height: 20px;
+    align-items: center;
+    justify-content: center;
+    font-size: 14px;
+}
+
+.footer .credit-left .panah:hover {
+    color: #ffffff;
+    background-color: var(--firstpurple);
+    border: 2px solid var(--firstpurple);
+}
+
+.footer .credit-center {
+    text-align: center;
+}
+
+.footer .credit-right {
+    text-align: right;
+}

@@ -1,0 +1,452 @@
+{% extends 'base.html' %}
+{% load static %}
+<!-- {% include 'logout_popup.html' %} -->
+
+
+{% block title %}Landing Page{% endblock %}
+{% block head %}
+
+<link rel="stylesheet" href="{% static 'style/landingPage.css' %}">
+<script src="{% static 'js/navbar.js' %}"></script>
+<link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" rel="stylesheet">
+
+{% endblock %}
+
+{% block content %}
+
+<!-- Navbar -->
+<nav class="navbar navbar-expand-lg py-1 fixed-top">
+    <div class="container-fluid px-5">
+        <a class="navbar-brand" href="#"><img src="{%static 'images/index/logoSmartbeez.png'%}" class="img-fluid" alt="Logo SmartBeez"></a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav mx-auto mb-2 mb-lg-0 small fw-bolder gap-4">
+                <li class="nav-item"><a class="nav-link" href="#">Home</a></li>
+                <li class="nav-item"><a class="nav-link" href="{% url 'tentangKami' %}">Tentang Kami</a></li>
+                <li class="nav-item"><a class="nav-link" href="{% url 'berita' %}">Berita Terkini</a></li>
+                <li class="nav-item"><a class="nav-link" href="{% url 'faq' %}">FAQs</a></li>
+                <li class="nav-item"><a class="nav-link" href="{% url 'profil' %}">Profile</a></li>
+            </ul>
+            <div class="d-flex gap-1">
+                <a class="btn btn-login rounded-5" style="visibility: hidden;" href="{% url 'login' %}">Login</a>
+                <a class="btn btn-outline-danger rounded-5" href="#" data-bs-toggle="modal" data-bs-target="#logoutModal">Log Out</a>
+            </div>
+        </div>
+    </div>
+</nav>
+
+<!-- Home Carousel -->
+<div id="carouselExampleAutoplaying" class="carousel slide" data-bs-ride="carousel">
+    <div class="carousel-indicators">
+        <button type="button" style="background-color: black;" data-bs-target="#carouselExampleAutoplaying" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+        <button type="button" style="background-color: black;" data-bs-target="#carouselExampleAutoplaying" data-bs-slide-to="1" aria-label="Slide 2"></button>
+        <button type="button" style="background-color: black;" data-bs-target="#carouselExampleAutoplaying" data-bs-slide-to="2" aria-label="Slide 3"></button>
+        </div>
+        <div class="carousel-inner">
+        <div class="carousel-item active">
+            <img src="{% static 'images/landingPage/iklan1.png' %}" class="d-block w-100" alt="Iklan 1">
+        </div>
+        <div class="carousel-item">
+            <img src="{% static 'images/landingPage/iklan2.png' %}" class="d-block w-100" alt="Iklan 2">
+        </div>
+        <div class="carousel-item">
+            <img src="{% static 'images/landingPage/iklan3.png' %}" class="d-block w-100" alt="Iklan 3">
+        </div>
+        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleAutoplaying" data-bs-slide="prev">
+            <span class="carousel-control-prev-icon visually-hidden" aria-hidden="true"></span>
+            <span class="visually-hidden">Previous</span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleAutoplaying" data-bs-slide="next">
+            <span class="carousel-control-next-icon visually-hidden" aria-hidden="true"></span>
+            <span class="visually-hidden">Next</span>
+        </button>
+    </div>
+</div>
+
+<!-- Home Fitur -->
+<div class="home-fitur">
+    <div class="card-container" id="card-hero-container">
+        <div class="card-hero">
+            <div class="card-hero-img">
+                <img src="{% static 'images/landingPage/fitur1.png' %}" alt="Fitur 1">
+            </div>
+            <div class="card-hero-item">
+                <p class="card-text">Lebih dari 1 Juta+ Anak dan Orang Tua Belajar Bersama.</p>
+            </div>
+        </div>
+        <div class="card-hero">
+            <div class="card-hero-img">
+                <img src="{% static 'images/landingPage/fitur2.png' %}" alt="Fitur 2">
+            </div>
+            <div class="card-hero-item">
+                <p class="card-text">Pembelajaran Interaktif yang Mengasah Keterampilan Anak.</p>
+            </div>
+        </div>
+        <div class="card-hero">
+            <div class="card-hero-img">
+                <img src="{% static 'images/landingPage/fitur3.png' %}" alt="Fitur 3">
+            </div>
+            <div class="card-hero-item">
+                <p class="card-text">4.9 Rating di Berbagai <br>Platform Edukasi.</p>
+            </div>
+        </div>
+        <div class="card-hero">
+            <div class="card-hero-img">
+                <img src="{% static 'images/landingPage/fitur4.png' %}" alt="Fitur 4">
+            </div>
+            <div class="card-hero-item">
+                <p class="card-text">50k++ Pengguna Baru Bergabung Setiap Bulan.</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Program -->
+<div id="program" class="program py-5">
+    <h1 style="color: #ffffff;">Program<span style="color: #FFD25D;"> Kami</span>.</h1>
+    <div class="container-program-kiri">
+        <img src="{% static 'images/index/program1.png' %}" alt="Program 1" class="img-program-kiri">
+        <div class="text-content-kiri">
+            <h5>Video Learning</h5>
+            <p>Video Learning dirancang untuk membantu anak dan orang tua belajar dengan cara yang menyenangkan dan sesuai dengan kebutuhan</p>
+            <ul>
+                <li>Belajar fleksibel melalui video, dan aktivitas interaktif yang menarik</li>
+                <li>Belajar dari dasar hingga lanjutan untuk pola asuh dan keterampilan awal</li>
+                <li>Panduan disusun dari para ahli yang berpengalaman di bidang parenting dan perkembanhan anak</li>
+            </ul>
+            <a class="btn btn-warning text-white rounded-4 py-2 px-3" href="#promo" role="button">Belajar Sekarang</a>
+        </div>
+    </div>
+    <div class="container-program-kanan">
+        <div class="text-content-kanan">
+            <h5>Educational Games</h5>
+            <p>Jelajahi permainan edukatif yang dirancang untuk mengembangkan keterampilan anak secara menyenangkan</p>
+            <ul>
+                <li>Meningkatkan kreatifitas dan pemecahan masalah melalui permainan interaktif</li>
+                <li>Dirancang sesuai usia anak untuk mendukung tumbuh kembang anak</li>
+                <li>Membantu anak belajar sambil bermain dengan cara yang menarik dan efektif</li>
+            </ul>
+            <a class="btn btn-warning text-white rounded-4 py-2 px-3" href="#promo" role="button">Belajar Sekarang</a>
+        </div>
+        <img src="{% static 'images/index/program2.png' %}" alt="Program 2" class="img-program-kanan">
+    </div>
+</div>
+
+<!-- Features -->
+<div id="features" class="features py-5">
+    <h1 style="color: #ffffff;">Keunggulan<span style="color: #FFD25D;"> Kami</span>.</h1>
+    <div class="container-features">
+        <div class="features-card">
+            <div class="card">
+                <h5>Interaktif dan<br> Menarik</h5>
+                <p>Smartbeez menggunakan permainan edukatif dan animasi yang membuat pembelajaran menyenangkan.</p>
+            </div>
+            <div class="card">
+                <h5 style="background-color: #DEC8FE;">Dukungan untuk <br>Orang Tua</h5>
+                <p>Fitur konsul orang tua untuk mendapatkan tips dan laporan perkembangan anak.</p>
+            </div>
+            <div class="card">
+                <h5>Fleksibilitas Waktu<br> dan Tempat</h3>
+                <p>Anak-anak dapat belajar kapan saja dan di mana saja, sangat membantu bagi orang tua.</p>
+            </div>
+            <div class="card">
+                <h5 style="background-color: #DEC8FE;">Komunitas dan Kolaborasi</h5>
+                <p>Forum untuk anak-anak berinteraksi, berbagi pengalaman, dan belajar bersama.</p>
+            </div>
+            <div class="card">
+                <h5>Kemajuan yang Terpantau</h5>
+                <p>Orang tua dapat melihat perkembangan pembelajaran anak secara langsung.</p>
+            </div>
+            <div class="card">
+                <h5 style="background-color: #DEC8FE;">Kemudahan untuk<br> akses</h5>
+                <p>Smartbeez dapat diakses dari berbagai perangkat dengan mudah.</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Testimonial -->
+<div id="testimonial" class="testimonial py-5">
+    <h1 style="color: #ffffff;">Testimonial<span style="color: #FFD25D;">s</span>.</h1>
+    <div class="container-testimonial">
+        <div class="testimonial-card">
+            <div class="card">
+                <img src="{% static 'images/index/testimoni1.png' %}" alt="Testimoni 1">
+                <h5>Alya Pratiwi</h5>
+                <div class="stars">
+                    <span class="star full">★</span>
+                    <span class="star full">★</span>
+                    <span class="star full">★</span>
+                    <span class="star full">★</span>
+                    <span class="star full">★</span>
+                </div>
+                <a class="btn rounded-4 py-2 px-3" href="{% url 'login' %}" role="button">Lihat Selengkapnya</a>
+            </div>
+            <div class="card">
+                <img src="{% static 'images/index/testimoni2.png' %}" alt="Testimoni 2">
+                <h5>Raka Ananta</h5>
+                <div class="stars">
+                    <span class="star full">★</span>
+                    <span class="star full">★</span>
+                    <span class="star full">★</span>
+                    <span class="star full">★</span>
+                    <span class="star full">★</span>
+                </div>
+                <a class="btn rounded-4 py-2 px-3" href="{% url 'login' %}" role="button">Lihat Selengkapnya</a>
+            </div>
+            <div class="card">
+                <img src="{% static 'images/index/testimoni3.png' %}" alt="Testimoni 3">
+                <h5>Nindya Maharani</h5>
+                <div class="stars">
+                    <span class="star full">★</span>
+                    <span class="star full">★</span>
+                    <span class="star full">★</span>
+                    <span class="star full">★</span>
+                    <span class="star empty">★</span>
+                </div>
+                <a class="btn rounded-4 py-2 px-3" href="{% url 'login' %}" role="button">Lihat Selengkapnya</a>
+            </div>
+            <div class="card">
+                <img src="{% static 'images/index/testimoni4.png' %}" alt="Testimoni 4">
+                <h5>Bayu Pratama</h5>
+                <div class="stars">
+                    <span class="star full">★</span>
+                    <span class="star full">★</span>
+                    <span class="star full">★</span>
+                    <span class="star full">★</span>
+                    <span class="star full">★</span>
+                </div>
+                <a class="btn rounded-4 py-2 px-3" href="{% url 'login' %}" role="button">Lihat Selengkapnya</a>
+            </div>
+            <div class="card">
+                <img src="{% static 'images/index/testimoni5.png' %}" alt="Testimoni 5">
+                <h5>Dewi Larasati</h5>
+                <div class="stars">
+                    <span class="star full">★</span>
+                    <span class="star full">★</span>
+                    <span class="star full">★</span>
+                    <span class="star full">★</span>
+                    <span class="star empty">★</span>
+                </div>
+                <a class="btn rounded-4 py-2 px-3" href="{% url 'login' %}" role="button">Lihat Selengkapnya</a>
+            </div>
+            <div class="card">
+                <img src="{% static 'images/index/testimoni6.png' %}" alt="Testimoni 6">
+                <h5>Bagas Mahardika</h5>
+                <div class="stars">
+                    <span class="star full">★</span>
+                    <span class="star full">★</span>
+                    <span class="star full">★</span>
+                    <span class="star full">★</span>
+                    <span class="star empty">★</span>
+                </div>
+                <a class="btn rounded-4 py-2 px-3" href="{% url 'login' %}" role="button">Lihat Selengkapnya</a>
+            </div>
+            <div class="card">
+                <img src="{% static 'images/index/testimoni7.png' %}" alt="Testimoni 7">
+                <h5>Nayara Salsabila</h5>
+                <div class="stars">
+                    <span class="star full">★</span>
+                    <span class="star full">★</span>
+                    <span class="star full">★</span>
+                    <span class="star full">★</span>
+                    <span class="star full">★</span>
+                </div>
+                <a class="btn rounded-4 py-2 px-3" href="{% url 'login' %}" role="button">Lihat Selengkapnya</a>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!--Teacher -->
+<div class="teacher">
+    <h1 style="color: #704FE3;">Tim<span style="color: #FFD25D;"> Pengajar</span>.</h1>
+    <div class="card-container">
+        <div class="card" style="background-color:#704FE3" onclick="expandCard(this)">
+            <p class="name" id="olivia">Olivia Rodrigo</p>
+            <div class="content" style="background-image: url('{% static 'images/index/teacher1.png' %}'); background-color: #704FE3;"></div>
+        </div>
+        <div class="card" style="background-color:#9B7EFF" onclick="expandCard(this)">
+            <p class="name">Jack <span>Alexander</span></p>
+            <div class="content" style="background-image: url('{% static 'images/index/teacher2.png' %}'); background-color: #9B7EFF;"></div>
+        </div>
+        <div class="card" style="background-color:#DEC8FE" onclick="expandCard(this)">
+            <p class="name">Nadia Lestary</p>
+            <div class="content" style="background-image: url('{% static 'images/index/teacher3.png' %}'); background-color: #DEC8FE"></div>
+        </div>
+        <div class="card" style="background-color:#FFF1CE" onclick="expandCard(this)">
+            <p class="name">Leo James</p>
+            <div class="content" style="background-image: url('{% static 'images/index/teacher4.png' %}'); background-color: #FFF1CE;"></div>
+        </div>
+        <div class="card" style="background-color:#FFE29B" onclick="expandCard(this)">
+            <p class="name">Stefy Catlyna</p>
+            <div class="content" style="background-image: url('{% static 'images/index/teacher5.png' %}'); background-color: #FFE29B;"></div>
+        </div>
+        <div class="card" style="background-color:#FFD25D" onclick="expandCard(this)">
+            <p class="name">Hendra Wijaya</p>
+            <div class="content" style="background-image: url('{% static 'images/index/teacher6.png' %}'); background-color: #FFD25D;"></div>
+        </div>
+    </div>
+</div>
+
+<!-- Promo -->
+<div class="promo-container" id="promo">
+    <h1 style="color: #704FE3;">Langganan<span style="color: #FFD25D;"> Sekarang</span>.</h1>
+    <div class="row">
+        <div class="col-md-4">
+            <div class="promo-card">
+                <div class="promo-harga">
+                    <h4>12 Bulan</h4>
+                    <p style="margin-bottom: 15px;">PAKET VIDEO E-LEARNING</p>
+                    <p style="text-decoration: line-through; color: #ff6565; font-weight: bold; margin-bottom: 0;">Rp 1.999.999</p>
+                    <p style="font-size: 40px; color: #fff477; font-weight: 500; margin: 0px;">RP 199.999</p>
+                    <p>Untuk akses semua, setara Rp 16.666 / bulan.</p>
+                </div>
+                <div class="promo-hasil">
+                    <div class="promo-list">
+                        <ul>
+                            <li>Akses semua video untuk anak.</li>
+                            <li>Akses semua video untuk orang tua.</li>
+                            <li>Akses semua fitur game edukasi.</li>
+                            <li>Akses berita terkini.</li>
+                            <li>Chat dan konsultasi untuk perkembangan anak.</li>
+                    </ul>
+                    </div>
+                    <a class="btn rounded-4 py-2 px-3" href="{% url 'subscribe' %}" role="button">Mulai Berlangganan</a>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="promo-card" style="border: 1px solid #FFD25D; color: #464646">
+                <div class="promo-harga" style="background-color: #FFD25D;">
+                    <h4>6 Bulan</h4>
+                    <p style="margin-bottom: 15px;">PAKET VIDEO E-LEARNING</p>
+                    <p style="text-decoration: line-through; color: #ff6565; font-weight: bold; margin-bottom: 0;">Rp 999.999</p>
+                    <p style="font-size: 40px; color: #704FE3; font-weight: 500; margin: 0px;">RP 109.999</p>
+                    <p>Untuk akses semua, setara Rp 18.333 / bulan.</p>
+                </div>
+                <div class="promo-hasil">
+                    <div class="promo-list">
+                        <ul>
+                            <li>Akses semua video untuk anak.</li>
+                            <li>Akses semua video untuk orang tua.</li>
+                            <li>Akses semua fitur game edukasi.</li>
+                            <li>Akses berita terkini.</li>
+                            <li>Chat dan konsultasi untuk perkembangan anak.</li> 
+                    </ul>
+                    </div>
+                    <a class="btn-tengah rounded-4 py-2 px-3" href="{% url 'subscribe' %}" role="button">Mulai Berlangganan</a>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="promo-card">
+                <div class="promo-harga">
+                    <h4>1 Bulan</h4>
+                    <p style="margin-bottom: 15px;">PAKET VIDEO E-LEARNING</p>
+                    <p style="text-decoration: line-through; color: #ff6565; font-weight: bold; margin-bottom: 0;">Rp 99.999</p>
+                    <p style="font-size: 40px; color: #fff477; font-weight: 500; margin: 0px;">RP 29.999</p>
+                    <p>Untuk akses semua, setara Rp 7.499 / minggu.</p>
+                </div>
+                <div class="promo-hasil">
+                    <div class="promo-list">
+                        <ul>
+                            <li>Akses semua video untuk anak.</li>
+                            <li>Akses semua video untuk orang tua.</li>
+                            <li>Akses semua fitur game edukasi.</li>
+                            <li>Akses berita terkini.</li>
+                            <li>Chat dan konsultasi untuk perkembangan anak.</li>
+                    </ul>
+                    </div>
+                    <a class="btn rounded-4 py-2 px-3" href="{% url 'subscribe' %}" role="button">Mulai Berlangganan</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Footer -->
+<footer class="footer">
+    <div class="footer-container container-fluid">
+        <div class="footer-header">
+            <img src="{% static 'images/index/logoSmartbeez.png' %}" alt="Company Logo" class="footer-logo">
+            <h6>Bermain dan belajar sambil berpetualang <br>bersama SmartBeez</h6>
+            <div class="footer-sosmed">
+                <div class="social-icons">
+                    <a href="#" style="margin-left: 50px;"><i data-feather="mail"></i></a>
+                    <a href="#"><i data-feather="twitter"></i></a>
+                    <a href="#"><i data-feather="facebook"></i></a>
+                    <a href="#"><i data-feather="instagram"></i></a>
+                    <a href="#"><i data-feather="youtube"></i></a>
+                    <a href="#"><i data-feather="linkedin"></i></a>
+                </div>
+            </div>
+        </div>
+        <div class="footer-column" style="margin-left: 200px;">
+            <h4>SmartBeez</h4>
+            <ul>
+                <li><a href="{% url 'tentangKami' %}">Tentang Kami</a></li>
+                <li><a href="{% url 'index' %}#features">Keunggulan</a></li>
+                <li><a href="{% url 'index' %}#testimonial">Testimoni</a></li>
+            </ul>
+        </div>
+        <div class="footer-column">
+            <h4>Produk</h4>
+            <ul>
+                <li><a href="{% url 'login' %}">Video Learning</a></li>
+                <li><a href="{% url 'login' %}">Games</a></li>
+                <li><a href="{% url 'berita' %}">Berita</a></li>
+            </ul>
+        </div>
+        <div class="footer-column">
+            <h4>Lainnya</h4>
+            <ul>
+                <li><a href="{% url 'faq' %}#faq">Faqs</a></li>
+                <li><a href="{% url 'faq' %}#kontak">Kontak</a></li>
+            </ul>
+        </div>
+    </div>
+    <div class="footer-bottom">
+        <div class="credit-right" style="text-align: left; justify-content: left; margin-left: 30px;">
+            <p class="text-decoration-none p-3">Created by  <span class="text-warning"> <strong>kelompok 2</strong></span> | &copy; 2024.</p>
+        </div>
+        <div class="credit-center" style="text-align: center; justify-content: center;">
+            <p class="text-decoration-none p-3" >Terms of Service</p>
+        </div>
+        <div class="credit-left" style="text-align: right; justify-content: right; margin-right: 30px;">
+            <p class="text-decoration-none p-3" style="display: flex; align-items: center; margin: 0;">Back to Top<a href="#" class="panah" style="margin-left: 10px;"><i data-feather="arrow-up"></i></a></p>
+        </div>
+    </div>
+</footer>
+
+<div class="modal fade" id="logoutModal" tabindex="-1" aria-labelledby="logoutModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="logoutModalLabel">Konfirmasi Logout</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          Apakah Anda yakin ingin logout?
+        </div>
+        <div class="modal-footer">
+          <form method="post" action="{% url 'account_logout' %}">
+            {% csrf_token %}
+            <button type="submit" class="btn btn-danger">Logout</button>
+          </form>
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Batal</button>
+        </div>
+      </div>
+    </div>
+  </div>
+<!-- <p></p> -->
+{% endblock %}
+
+{% block javascript %}
+<!-- Tempat untuk memasukkan stylesheet atau JS yang spesifik halaman -->
+<script>feather.replace();</script>
+
+{% endblock %}

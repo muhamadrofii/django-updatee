@@ -1,0 +1,88 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Login{% endblock %}
+{% block head %}
+
+<link rel="stylesheet" href="{% static '/style/login.css' %}">
+<link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
+{% endblock %}
+
+{% block content %}
+<div class="container d-flex justify-content-center align-items-center min-vh-100">
+    <div class="row border rounded-5 py-2 px-5 bg-white shadow box-area">
+        <button class="btn-icon btn btn-sm fs-6 d-flex flex-column pb-3 color-none">
+            <a href="{% url 'index' %}"><i class="bi bi-arrow-left" style="font-size: 30px;"></i></a>
+        </button>
+
+        <!-- Bagian Kiri -->
+        <div class="col-md-6 rounded-4 d-flex justify-content-center align-items-center flex-column left-box" style="background: #704FE3">
+            <div class="featured-image mb-3">
+                <img src="{% static '/images/signUp/gambarSignup.png' %}" class="img-fluid" style="width: 200px;">
+            </div>
+            <p class="text-white fs-2" style="font-family: 'Courier New', Courier, monospace; font-weight: 600;">Be Verified</p>
+            <small class="text-white text-wrap text-center" style="width: 17rem;font-family: 'Courier New', Courier, monospace;">Join experienced Designers on this platform.</small>
+        </div>
+
+        <!-- Bagian Kanan -->
+    
+        <div class="col-md-6 right-box">
+            <div class="row align-items-center">
+                <div class="header-text mb-4">
+                    <h2>Hello,Again</h2>
+                    <p>We are happy to have you back.</p>
+                </div>
+                <div class="input-group mb-2">
+                    <input type="text" class="form-control form-control-lg bg-light fs-6" placeholder="Email address">
+                </div>
+                <div class="input-group mb-2">
+                    <input type="password" class="form-control form-control-lg bg-light fs-6" placeholder="Password">
+                </div>
+                <div class="input-group mb-2">
+                    <input type="password" class="form-control form-control-lg bg-light fs-6" placeholder="Confirm Password">
+                </div>
+                <div class="input-group mb-5 d-flex justify-content-between">
+                    <div class="form-check">
+                        <input type="checkbox" class="form-check-input" id="formCheck">
+                        <label for="formCheck" class="form-check-label text-secondary"><small>Remember Me</small></label>
+                    </div>
+                    <div class="forgot">
+                        <small><a href="#" style="text-decoration: none;">Forgot Password?</a></small>
+                    </div>
+                </div>
+                <div class="input-group mb-3">
+                    <button class="btn-login btn btn-lg w-100 fs-6"><a href="beranda.html" style="text-decoration: none;">Login</a></button>
+                </div>
+                <div class="d-flex justify-content-between flex-wrap gap-0 py-2">
+                    <!-- Tombol Google -->
+                    <button class="btn-icon btn btn-sm fs-6 d-flex align-items-center flex-column p-0 color-none">
+                        <i class="bi bi-google" style="font-size: 30px;"></i>
+                        <small>Google</small>
+                    </button>
+                    
+                    <!-- Tombol LinkedIn -->
+                    <button class="btn-icon btn btn-sm fs-6 d-flex align-items-center flex-column p-0 color-none">
+                        <i class="bi bi-linkedin" style="font-size: 30px;"></i>
+                        <small>LinkedIn</small>
+                    </button>
+                
+                    <!-- Tombol Twitter -->
+                    <button class="btn-icon btn btn-sm fs-6 d-flex align-items-center flex-column p-0 color-none">
+                        <i class="bi bi-twitter" style="font-size: 30px;"></i>
+                        <small>Twitter</small>
+                    </button>
+                    
+                    <!-- Tombol Facebook -->
+                    <button class="btn-icon btn btn-sm fs-6 d-flex align-items-center flex-column p-0 color-none">
+                        <i class="bi bi-facebook" style="font-size: 30px;"></i>
+                        <small>Facebook</small>
+                    </button>
+                </div>
+                <div class="row">
+                    <small>Don't have an account? <a href="{%url 'register'%}" style="text-decoration: none;">Sign Up</a></small>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

@@ -1,0 +1,387 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Index{% endblock %}
+{% block head %}
+
+<link rel="stylesheet" href="{% static 'style/index.css' %}">
+{% endblock %}
+
+{% block content %}
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg py-1 fixed-top">
+        <div class="container-fluid px-5">
+            <a class="navbar-brand" href="#"><img src="{% static 'images/index/logoSmartbeez.png' %}" class="img-fluid" alt="Logo SmartBeez"></a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav mx-auto mb-2 mb-lg-0 small fw-bolder gap-4">
+                    <li class="nav-item"><a class="nav-link" href="#">Home</a></li>
+                    <li class="nav-item"><a class="nav-link" href="{% url 'tentangKami' %}">Tentang Kami</a></li>
+                    <li class="nav-item"><a class="nav-link" href="{% url 'berita' %}">Berita Terkini</a></li>
+                    <li class="nav-item"><a class="nav-link" href="{% url 'faq' %}">FAQs</a></li>
+                </ul>
+                <div class="d-flex gap-1">
+                    <a class="btn btn-login rounded-5" href="{% url 'account_login' %}">Login</a>
+                    <a class="btn btn-outline-warning rounded-5" href="{% url 'account_signup' %}">Sign Up</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+<!-- Home -->
+    <div class="container-fluid home-section" id="home">
+        <div class="content-home d-flex justify-content-center align-items-center mx-auto py-5" style="width: 100%;">
+            <!-- Kolom Kiri -->
+            <div class="image-column">
+                <img src="{% static 'images/index/home6.png' %}" alt="Elemen Lingkaran" class="side-image center-image">
+            </div>
+            <div class="image-column">
+                <img src="{% static 'images/index/home1.png' %}" alt="Gambar Anak Laki-Laki" class="side-image top-image">
+                <img src="{% static 'images/index/home3.png' %}" alt="Gambar Anak Perempuan" class="side-image bottom-image">
+            </div>
+            
+            <!-- Kolom Tengah -->
+            <div class="text-column mx-4" style="text-align: center;">
+                <h1>Temukan <span style="color: #704FE3;">inspirasi</span> dalam <br> setiap perjalanan <span style="color: #FFD25D;">belajar</span>.</h1>
+                <h6>Selamat datang di dunia belajar seru! Anak-anak 5-9 tahun bisa bermain <br>dan belajar sambil berpetualang dengan karakter-karakter menarik!</h6>
+                <a class="btn btn-warning text-white rounded-4 py-2 px-3" href="login.html" role="button">Belajar Sekarang</a>
+            </div>
+
+            <!-- Kolom Kanan -->
+            <div class="image-column">
+                <img src="{% static 'images/index/home2.png' %}" alt="Gambar Anak Laki-Laki" class="side-image top-image">
+                <img src="{% static 'images/index/home4.png' %}" alt="Gambar Anak Perempuan" class="side-image bottom-image">
+            </div>
+            <div class="image-column">
+                <img src="{% static 'images/index/home5.png' %}" alt="Elemen Lingkaran" class="side-image center-image">
+            </div>
+        </div>
+    </div>
+
+<!-- Program -->
+    <div id="program" class="program py-5">
+        <h1 style="color: #ffffff;">Program<span style="color: #FFD25D;"> Kami</span>.</h1>
+        <div class="container-program-kiri">
+            <img src="{% static 'images/index/program1.png' %}" alt="Program 1" class="img-program-kiri">
+            <div class="text-content-kiri" style="text-align: justify;">
+                <h5>Video Learning</h5>
+                <p>Temukan cara baru untuk mendukung tumbuh kembang anak melalui video edukasi yang dirancang khusus untuk anak dan orang tua.</p>
+                <ul>
+                    <li>Belajar fleksibel melalui video, dan aktivitas interaktif yang menarik</li>
+                    <li>Tingkatkan pemahaman pola asuh dan keterampilan anak dengan materi bertahap yang relevan dan aplikatif.</li>
+                    <li>Temukan cara belajar bersama yang menyenangkan melalui aktivitas interaktif yang melibatkan seluruh keluarga.</li>
+                </ul>
+                <a class="btn btn-warning text-white rounded-4 py-2 px-3" href="login.html" role="button">Belajar Sekarang</a>
+            </div>
+        </div>
+        <div class="container-program-kanan">
+            <div class="text-content-kanan" style="text-align: justify; margin-right: 50px;">
+                <h5>Educational Games</h5>
+                <p>Berikan pengalaman belajar yang seru dan mendidik untuk anak Anda melalui permainan interaktif!</p>
+                <ul>
+                    <li>Mainkan game interaktif yang membantu anak meningkatkan kreativitas, logika, dan konsentrasi.</li>
+                    <li>Gabungkan edukasi dengan hiburan dalam pengalaman bermain yang penuh manfaat.</li>
+                    <li>Ajak anak menghadapi tantangan seru yang mendorong mereka berpikir kritis dan menemukan solusi kreatif.</li>
+                </ul>
+                <a class="btn btn-warning text-white rounded-4 py-2 px-3" href="login.html" role="button">Belajar Sekarang</a>
+            </div>
+            <img src="{% static 'images/index/program2.png' %}" alt="Program 2" class="img-program-kanan">
+        </div>
+    </div>
+
+<!-- Features -->
+    <div id="features" class="features py-5">
+        <h1 style="color: #ffffff;">Keunggulan<span style="color: #FFD25D;"> Kami</span>.</h1>
+        <div class="container-features">
+            <div class="features-card">
+                <div class="card">
+                    <h5>Interaktif dan<br> Menarik</h5>
+                    <p>Smartbeez menggunakan permainan edukatif dan animasi yang membuat pembelajaran menyenangkan.</p>
+                </div>
+                <div class="card">
+                    <h5 style="background-color: #DEC8FE;">Dukungan untuk <br>Orang Tua</h5>
+                    <p>Fitur konsul orang tua untuk mendapatkan tips dan laporan perkembangan anak.</p>
+                </div>
+                <div class="card">
+                    <h5>Fleksibilitas Waktu<br> dan Tempat</h3>
+                    <p>Anak-anak dapat belajar kapan saja dan di mana saja, sangat membantu bagi orang tua.</p>
+                </div>
+                <div class="card">
+                    <h5 style="background-color: #DEC8FE;">Komunitas dan Kolaborasi</h5>
+                    <p>Forum untuk anak-anak berinteraksi, berbagi pengalaman, dan belajar bersama.</p>
+                </div>
+                <div class="card">
+                    <h5>Kemajuan yang Terpantau</h5>
+                    <p>Orang tua dapat melihat perkembangan pembelajaran anak secara langsung.</p>
+                </div>
+                <div class="card">
+                    <h5 style="background-color: #DEC8FE;">Kemudahan untuk<br> akses</h5>
+                    <p>Smartbeez dapat diakses dari berbagai perangkat dengan mudah.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+<!-- Testimonial -->
+    <div id="testimonial" class="testimonial py-5">
+        <h1 style="color: #ffffff;">Testimonial<span style="color: #FFD25D;">s</span>.</h1>
+        <div class="container-testimonial">
+            <div class="testimonial-card">
+                <div class="card">
+                    <img src="{% static 'images/index/testimoni1.png' %}" alt="Testimoni 1">
+                    <h5>Alya Pratiwi</h5>
+                    <div class="stars">
+                        <span class="star full">★</span>
+                        <span class="star full">★</span>
+                        <span class="star full">★</span>
+                        <span class="star full">★</span>
+                        <span class="star full">★</span>
+                    </div>
+                    <a class="btn rounded-4 py-2 px-3" href="loginForm.html" role="button">Lihat Selengkapnya</a>
+                </div>
+                <div class="card">
+                    <img src="{% static 'images/index/testimoni2.png' %}" alt="Testimoni 2">
+                    <h5>Raka Ananta</h5>
+                    <div class="stars">
+                        <span class="star full">★</span>
+                        <span class="star full">★</span>
+                        <span class="star full">★</span>
+                        <span class="star full">★</span>
+                        <span class="star full">★</span>
+                    </div>
+                    <a class="btn rounded-4 py-2 px-3" href="loginForm.html" role="button">Lihat Selengkapnya</a>
+                </div>
+                <div class="card">
+                    <img src="{% static 'images/index/testimoni3.png' %}" alt="Testimoni 3">
+                    <h5>Nindya Maharani</h5>
+                    <div class="stars">
+                        <span class="star full">★</span>
+                        <span class="star full">★</span>
+                        <span class="star full">★</span>
+                        <span class="star full">★</span>
+                        <span class="star empty">★</span>
+                    </div>
+                    <a class="btn rounded-4 py-2 px-3" href="loginForm.html" role="button">Lihat Selengkapnya</a>
+                </div>
+                <div class="card">
+                    <img src="{% static 'images/index/testimoni4.png' %}" alt="Testimoni 4">
+                    <h5>Bayu Pratama</h5>
+                    <div class="stars">
+                        <span class="star full">★</span>
+                        <span class="star full">★</span>
+                        <span class="star full">★</span>
+                        <span class="star full">★</span>
+                        <span class="star full">★</span>
+                    </div>
+                    <a class="btn rounded-4 py-2 px-3" href="loginForm.html" role="button">Lihat Selengkapnya</a>
+                </div>
+                <div class="card">
+                    <img src="{% static 'images/index/testimoni5.png' %}" alt="Testimoni 5">
+                    <h5>Dewi Larasati</h5>
+                    <div class="stars">
+                        <span class="star full">★</span>
+                        <span class="star full">★</span>
+                        <span class="star full">★</span>
+                        <span class="star full">★</span>
+                        <span class="star empty">★</span>
+                    </div>
+                    <a class="btn rounded-4 py-2 px-3" href="loginForm.html" role="button">Lihat Selengkapnya</a>
+                </div>
+                <div class="card">
+                    <img src="{% static 'images/index/testimoni6.png' %}" alt="Testimoni 6">
+                    <h5>Bagas Mahardika</h5>
+                    <div class="stars">
+                        <span class="star full">★</span>
+                        <span class="star full">★</span>
+                        <span class="star full">★</span>
+                        <span class="star full">★</span>
+                        <span class="star empty">★</span>
+                    </div>
+                    <a class="btn rounded-4 py-2 px-3" href="loginForm.html" role="button">Lihat Selengkapnya</a>
+                </div>
+                <div class="card">
+                    <img src="{% static 'images/index/testimoni7.png' %}" alt="Testimoni 7">
+                    <h5>Nayara Salsabila</h5>
+                    <div class="stars">
+                        <span class="star full">★</span>
+                        <span class="star full">★</span>
+                        <span class="star full">★</span>
+                        <span class="star full">★</span>
+                        <span class="star full">★</span>
+                    </div>
+                    <a class="btn rounded-4 py-2 px-3" href="loginForm.html" role="button">Lihat Selengkapnya</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+<!--Teacher -->
+    <div class="teacher">
+        <h1 style="color: #704FE3;">Tim<span style="color: #FFD25D;"> Pengajar</span>.</h1>
+        <div class="card-container">
+            <div class="card" style="background-color:#704FE3" onclick="expandCard(this)">
+                <p class="name">Olivia Rodrigo</p>
+                <div class="content" style="background-image: url('{% static 'images/index/teacher1.png' %}'); background-color: #704FE3;"></div>
+            </div>
+            <div class="card" style="background-color:#9B7EFF" onclick="expandCard(this)">
+                <p class="name">Jack <span>Alexander</span></p>
+                <div class="content" style="background-image: url('{% static 'images/index/teacher2.png' %}'); background-color: #9B7EFF;"></div>
+            </div>
+            <div class="card" style="background-color:#DEC8FE" onclick="expandCard(this)">
+                <p class="name">Nadia Lestary</p>
+                <div class="content" style="background-image: url('{% static 'images/index/teacher3.png' %}'); background-color: #DEC8FE"></div>
+            </div>
+            <div class="card" style="background-color:#FFF1CE" onclick="expandCard(this)">
+                <p class="name">Leo James</p>
+                <div class="content" style="background-image: url('{% static 'images/index/teacher4.png' %}'); background-color: #FFF1CE;"></div>
+            </div>
+            <div class="card" style="background-color:#FFE29B" onclick="expandCard(this)">
+                <p class="name">Stefy Catlyna</p>
+                <div class="content" style="background-image: url('{% static 'images/index/teacher5.png' %}'); background-color: #FFE29B;"></div>
+            </div>
+            <div class="card" style="background-color:#FFD25D" onclick="expandCard(this)">
+                <p class="name">Hendra Wijaya</p>
+                <div class="content" style="background-image: url('{% static 'images/index/teacher6.png' %}'); background-color: #FFD25D;"></div>
+            </div>
+        </div>
+    </div>
+
+<!-- Promo -->
+    <div class="promo-container">
+        <h1 style="color: #704FE3;">Langganan<span style="color: #FFD25D;"> Sekarang</span>.</h1>
+        <div class="row">
+            <div class="col-md-4">
+                <div class="promo-card">
+                    <div class="promo-harga">
+                        <h4>12 Bulan</h4>
+                        <p style="margin-bottom: 15px;">PAKET VIDEO E-LEARNING</p>
+                        <p style="text-decoration: line-through; color: #ff6565; font-weight: bold; margin-bottom: 0;">Rp 1.999.999</p>
+                        <p style="font-size: 40px; color: #fff477; font-weight: 500; margin: 0px;">RP 199.999</p>
+                        <p>Untuk akses semua, setara Rp 16.666 / bulan.</p>
+                    </div>
+                    <div class="promo-hasil">
+                        <div class="promo-list">
+                            <ul>
+                                <li>Akses semua video untuk anak.</li>
+                                <li>Akses semua video untuk orang tua.</li>
+                                <li>Akses semua fitur game edukasi.</li>
+                                <li>Akses berita terkini.</li>
+                                <li>Chat dan konsultasi untuk perkembangan anak.</li>
+                        </ul>
+                        </div>
+                        <a class="btn rounded-4 py-2 px-3" href='{% url 'account_login' %}' role="button">Mulai Berlangganan</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="promo-card" style="border: 1px solid #FFD25D; color: #464646">
+                    <div class="promo-harga" style="background-color: #FFD25D;">
+                        <h4>6 Bulan</h4>
+                        <p style="margin-bottom: 15px;">PAKET VIDEO E-LEARNING</p>
+                        <p style="text-decoration: line-through; color: #ff6565; font-weight: bold; margin-bottom: 0;">Rp 999.999</p>
+                        <p style="font-size: 40px; color: #704FE3; font-weight: 500; margin: 0px;">RP 109.999</p>
+                        <p>Untuk akses semua, setara Rp 18.333 / bulan.</p>
+                    </div>
+                    <div class="promo-hasil">
+                        <div class="promo-list">
+                            <ul>
+                                <li>Akses semua video untuk anak.</li>
+                                <li>Akses semua video untuk orang tua.</li>
+                                <li>Akses semua fitur game edukasi.</li>
+                                <li>Akses berita terkini.</li>
+                                <li>Chat dan konsultasi untuk perkembangan anak.</li>                              
+                        </ul>
+                        </div>
+                        <a class="btn-tengah rounded-4 py-2 px-3" href='{% url 'account_login' %}' role="button">Mulai Berlangganan</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="promo-card">
+                    <div class="promo-harga">
+                        <h4>1 Bulan</h4>
+                        <p style="margin-bottom: 15px;">PAKET VIDEO E-LEARNING</p>
+                        <p style="text-decoration: line-through; color: #ff6565; font-weight: bold; margin-bottom: 0;">Rp 99.999</p>
+                        <p style="font-size: 40px; color: #fff477; font-weight: 500; margin: 0px;">RP 29.999</p>
+                        <p>Untuk akses semua, setara Rp 7.499 / minggu.</p>
+                    </div>
+                    <div class="promo-hasil">
+                        <div class="promo-list">
+                            <ul>
+                                <li>Akses semua video untuk anak.</li>
+                                <li>Akses semua video untuk orang tua.</li>
+                                <li>Akses semua fitur game edukasi.</li>
+                                <li>Akses berita terkini.</li>
+                                <li>Chat dan konsultasi untuk perkembangan anak.</li>
+                                
+                        </ul>
+                        </div>
+                        <a class="btn rounded-4 py-2 px-3" href="{% url 'account_login' %}" role="button">Mulai Berlangganan</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+<!-- Footer -->
+    <footer class="footer">
+        <div class="footer-container container-fluid">
+            <div class="footer-header">
+                <img src="{% static 'images/index/logoSmartbeez.png' %}" alt="Company Logo" class="footer-logo">
+                <h6>Bermain dan belajar sambil berpetualang <br>bersama SmartBeez</h6>
+                <div class="footer-sosmed">
+                    <div class="social-icons">
+                        <a href="#" style="margin-left: 50px;"><i data-feather="mail"></i></a>
+                        <a href="#"><i data-feather="twitter"></i></a>
+                        <a href="#"><i data-feather="facebook"></i></a>
+                        <a href="#"><i data-feather="instagram"></i></a>
+                        <a href="#"><i data-feather="youtube"></i></a>
+                        <a href="#"><i data-feather="linkedin"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-column" style="margin-left: 200px;">
+                <h4>SmartBeez</h4>
+                <ul>
+                    <li><a href="{% url 'tentangKami' %}">Tentang Kami</a></li>
+                    <li><a href="{% url 'index' %}#features">Keunggulan</a></li>
+                    <li><a href="{% url 'index' %}#testimonial">Testimoni</a></li>
+                </ul>
+            </div>
+            <div class="footer-column">
+                <h4>Produk</h4>
+                <ul>
+                    <li><a href="login.html">Video Learning</a></li>
+                    <li><a href="login.html">Games</a></li>
+                    <li><a href="{% url 'berita' %}">Berita</a></li>
+                </ul>
+            </div>
+            <div class="footer-column">
+                <h4>Lainnya</h4>
+                <ul>
+                    <li><a href="{% url 'faq' %}#faq">Faqs</a></li>
+                    <li><a href="{% url 'faq' %}#kontak">Kontak</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <div class="credit-right" style="text-align: left; justify-content: left; margin-left: 30px;">
+                <p class="text-decoration-none p-3">Created by  <span class="text-warning"> <strong>kelompok 2</strong></span> | &copy; 2024.</p>
+            </div>
+            <div class="credit-center" style="text-align: center; justify-content: center;">
+                <p class="text-decoration-none p-3" >Terms of Service</p>
+            </div>
+            <div class="credit-left" style="text-align: right; justify-content: right; margin-right: 30px;">
+                <p class="text-decoration-none p-3" style="display: flex; align-items: center; margin: 0;">Back to Top<a href="#" class="panah" style="margin-left: 10px;"><i data-feather="arrow-up"></i></a></p>
+            </div>
+        </div>
+    </footer>
+{% endblock %}
+
+{% block javascript %}
+<!-- Tempat untuk memasukkan stylesheet atau JS yang spesifik halaman -->
+<script>feather.replace();</script>
+
+{% endblock %}
